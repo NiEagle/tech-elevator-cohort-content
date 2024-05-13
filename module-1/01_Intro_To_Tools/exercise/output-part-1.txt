@@ -3,15 +3,15 @@
 
 ✅ 1. /c/Users/Student/playground exists
 ✅ 2. /c/Users/Student/playground/usa exists
-❗️ 3. /c/Users/Student/playground/canada does not exist
-❗️ 4. /c/Users/Student/playground/usa/ohio does not exist
-❗️ 5. /c/Users/Student/playground/usa/pennsylvania does not exist
-❗️ 6. /c/Users/Student/playground/usa/michigan does not exist
-❗️ 7. /c/Users/Student/playground/canada/quebec does not exist
-❗️ 8. /c/Users/Student/playground/canada/british-columbia does not exist
-❗️ 9. /c/Users/Student/playground/usa/ohio/cuyahoga does not exist
-❗️ 10. /c/Users/Student/playground/usa/ohio/hamilton does not exist
-❗️ 11. /c/Users/Student/playground/usa/ohio/franklin does not exist
+✅ 3. /c/Users/Student/playground/canada exists
+✅ 4. /c/Users/Student/playground/usa/ohio exists
+✅ 5. /c/Users/Student/playground/usa/pennsylvania exists
+✅ 6. /c/Users/Student/playground/usa/michigan exists
+✅ 7. /c/Users/Student/playground/canada/quebec exists
+✅ 8. /c/Users/Student/playground/canada/british-columbia exists
+✅ 9. /c/Users/Student/playground/usa/ohio/cuyahoga exists
+✅ 10. /c/Users/Student/playground/usa/ohio/hamilton exists
+✅ 11. /c/Users/Student/playground/usa/ohio/franklin exists
 ❗️ 12. /c/Users/Student/playground/usa/pennsylvania/allegheny does not exist
 ❗️ 13. /c/Users/Student/playground/usa/michigan/wayne does not exist
 ❗️ 14. /c/Users/Student/playground/usa/ohio/cuyahoga/cleveland.txt does not exist
@@ -25,8 +25,8 @@
 ❗️ 22. /c/Users/Student/playground/canada/british-columbia/prince-george.txt does not exist
 
 Total tests: 22
-Tests passed: 2
-Errors: 20
+Tests passed: 11
+Errors: 11
 
  You still need to make a few more changes.
  If you are having difficulty troubleshooting, try the following:
