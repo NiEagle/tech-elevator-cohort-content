@@ -212,21 +212,22 @@ public class Exercises {
         */
 		int borderRocksGoal = 125;
 		int currentRockQuantity = 64;
+		int rocksFromGoal = borderRocksGoal - currentRockQuantity;
 
         /* Exercise 23
         23. Mrs. Hilt had 38 marbles. She lost 15 of them. How many marbles does
         she have left?
         */
 		int mrsHiltsMarbels = 38;
-		int lostMarbels = 15;
-
+		int mrsHiltsLostMarbels = 15;
+		int mrsHiltsCurrentMarbels = mrsHiltsMarbels - mrsHiltsLostMarbels;
         /* Exercise 24
         24. Mrs. Hilt and her sister drove to a concert 78 miles away. They drove 32
         miles and then stopped for gas. How many miles did they have left to drive?
         */
 		int concertDistance = 78;
 		int gasDistance = 32;
-
+		int milesLeft = concertDistance - gasDistance;
         /* Exercise 25
         25. Mrs. Hilt spent 1 hour and 30 minutes shoveling snow on Saturday
         morning and 45 minutes shoveling snow on Saturday afternoon. How
@@ -234,13 +235,14 @@ public class Exercises {
         */
 		int morningShovelingTime = 90;
 		int afternoonShovelTime = 45;
-
+		int totalShovelHours = morningShovelingTime + afternoonShovelTime;
         /* Exercise 26
         26. Mrs. Hilt bought 6 hot dogs. Each hot dog cost 50 cents. How much
         money did she pay for all of the hot dogs?
         */
 		int baughtHotDogs = 6;
 		double hotDogCost = 0.5;
+		double totalHotDogCost = baughtHotDogs * hotDogCost;
 
         /* Exercise 27
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
@@ -248,6 +250,7 @@ public class Exercises {
         */
 		double mrsHiltsMoney = 0.5;
 		double pricePerPencil = 0.07;
+		int totalPencilsHilt = (int)(mrsHiltsMoney % pricePerPencil);
 
         /* Exercise 28
         28. Mrs. Hilt saw 33 butterflies. Some of the butterflies were red and others
@@ -255,14 +258,15 @@ public class Exercises {
         were red?
         */
 		int butterfliesSeen = 33;
-		int orangeButterfkiesSeen = 20;
-
+		int orangeButterfliesSeen = 20;
+		int greenButterfliesSeen = butterfliesSeen - orangeButterfliesSeen;
         /* Exercise 29
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
 		double cashGiven = 1.00;
 		double katesTotal = 0.54;
+		double katesChange = cashGiven - katesTotal;
 
         /* Exercise 30
         30. Mark has 13 trees in his backyard. If he plants 12 more, how many trees
@@ -270,6 +274,7 @@ public class Exercises {
         */
 		int treesInMarksYard = 13;
 		int treesMarkPlanted = 12;
+		int totalTrees = treesInMarksYard + treesMarkPlanted;
 
         /* Exercise 31
         31. Joy will see her grandma in two days. How many hours until she sees
@@ -277,20 +282,21 @@ public class Exercises {
         */
 		int daysToSeeGrandma = 2;
 		int hoursPerDay = 24;
-
+		int totalHours = daysToSeeGrandma * hoursPerDay;
         /* Exercise 32
         32. Kim has 4 cousins. She wants to give each one 5 pieces of gum. How
         much gum will she need?
         */
 		int kimsQuantityOfCousins = 4;
 		int gumPerCousin = 5;
-
+		int totalGum = kimsQuantityOfCousins * gumPerCousin;
         /* Exercise 33
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
 		double dansMoney = 3.00;
 		double priceOfCandy = 1.00;
+		double dansRemaindingMoney = dansMoney - priceOfCandy;
 
         /* Exercise 34
         34. 5 boats are in the lake. Each boat has 3 people. How many people are
@@ -298,13 +304,14 @@ public class Exercises {
         */
 		int quantityOfBoats = 5;
 		int peoplePerBoat = 3;
-
+		int totalBoatPeople = quantityOfBoats * peoplePerBoat;
         /* Exercise 35
         35. Ellen had 380 legos, but she lost 57 of them. How many legos does she
         have now?
         */
 		int quantityOfLegos = 380;
 		int quantityOfLostLegos = 57;
+		int curentLegosAmount = quantityOfLegos - quantityOfLostLegos;
 
         /* Exercise 36
         36. Arthur baked 35 muffins. How many more muffins does Arthur have to
@@ -312,6 +319,7 @@ public class Exercises {
         */
 		int amountOfMuffins = 35;
 		int totalMuffinGoal = 83;
+		int muffinsBeforeGoal = totalMuffinGoal - amountOfMuffins;
 
         /* Exercise 37
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
@@ -319,7 +327,7 @@ public class Exercises {
         */
 		int willysQuantityOfCrayons = 1400;
 		int lucysQuantityOfCrayons = 290;
-
+		int crayonGap = willysQuantityOfCrayons - lucysQuantityOfCrayons;
 
         /* Exercise 38
         38. There are 10 stickers on a page. If you have 22 pages of stickers, how
@@ -327,13 +335,14 @@ public class Exercises {
         */
 		int quantityOfStickers = 22;
 		int amountOfStickerPages = 10;
-
+		int stickerTotal = amountOfStickerPages * quantityOfStickers;
         /* Exercise 39
         39. There are 100 cupcakes for 8 children to share. How much will each
         person get if they share the cupcakes equally?
         */
-		int quantityOfMuffins = 100;
+		int quantityOfCupcake = 100;
 		int quantityOfChildren = 8;
+		int cupcakesPerChild = quantityOfCupcake / quantityOfChildren;
 
         /* Exercise 40
         40. She made 47 gingerbread cookies which she will distribute equally in
@@ -342,7 +351,7 @@ public class Exercises {
         */
 		int quantityOfGingerBreadCookies = 47;
 		int cookiesPerJar = 6;
-
+		int  leftoverCookies = quantityOfGingerBreadCookies % cookiesPerJar:
         /* Exercise 41
         41. She also prepared 59 croissants which she plans to give to her 8
         neighbors. If each neighbor received an equal number of croissants,
@@ -351,6 +360,7 @@ public class Exercises {
 
 		int totalCroissants = 59;
 		int neighborsToRecieveCroissants = 8;
+		int  leftOverCroissants= totalCroissants % neighborsToRecieveCroissants;
 
         /* Exercise 42
         42. Marian also baked oatmeal cookies for her classmates. If she can
