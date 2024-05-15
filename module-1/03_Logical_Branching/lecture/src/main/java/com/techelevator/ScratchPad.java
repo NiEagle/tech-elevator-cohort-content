@@ -1,5 +1,6 @@
 package com.techelevator;
 
+
 public class ScratchPad {
     public static void main(String[] args) {
 
@@ -15,6 +16,9 @@ public class ScratchPad {
         } else {
             System.out.println("Not safe!");
         }
+
+        int rate = scratchPad.interestRate(1000);
+        System.out.println("Customer interest rate: " + rate + "%");
 
 
     }
@@ -37,6 +41,30 @@ public class ScratchPad {
         }
 
         return true;
+    }
+
+    //Calc interest rate based on a customers credit score.
+    //Takes in a int credit score
+    public int interestRate(int creditScore){
+        if(800 <= creditScore && creditScore <= 850){
+            return 3;
+        }
+        else if(740 <= creditScore && creditScore <= 799){
+            return 4;
+        }
+        else if(670 <= creditScore && creditScore <= 739){
+            return 5;
+        }
+        else if(670 <= creditScore && creditScore <= 739){
+            return 5;
+        }
+        else if (300 <= creditScore && creditScore <= 669) {
+            return 6;
+        }
+        else {
+            return 150;
+        }
+// Other teams set the interest rate as a varible which was set in each if statement and then returned at the end of the method
     }
 }
 
