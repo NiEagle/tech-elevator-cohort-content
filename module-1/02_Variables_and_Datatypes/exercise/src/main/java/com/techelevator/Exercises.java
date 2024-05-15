@@ -162,7 +162,7 @@ public class Exercises {
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
         marbles does he have now?
         */
-		int joshsMarbles = 16;
+		int joshsMarbles = 1;
 		int lostMarbles = 7;
 		int currentMarbels = joshsMarbles - lostMarbles;
 
@@ -248,9 +248,6 @@ public class Exercises {
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
-		double mrsHiltsMoney = 0.5;
-		double pricePerPencil = 0.07;
-		int totalPencilsHilt = (int)(mrsHiltsMoney % pricePerPencil);
 
         /* Exercise 28
         28. Mrs. Hilt saw 33 butterflies. Some of the butterflies were red and others
@@ -351,7 +348,7 @@ public class Exercises {
         */
 		int quantityOfGingerBreadCookies = 47;
 		int cookiesPerJar = 6;
-		int  leftoverCookies = quantityOfGingerBreadCookies % cookiesPerJar:
+		int  leftoverCookies = quantityOfGingerBreadCookies % cookiesPerJar;
         /* Exercise 41
         41. She also prepared 59 croissants which she plans to give to her 8
         neighbors. If each neighbor received an equal number of croissants,
