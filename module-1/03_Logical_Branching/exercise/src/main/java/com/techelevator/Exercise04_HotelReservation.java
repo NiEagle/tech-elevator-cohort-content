@@ -26,7 +26,14 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
-        return 0.0;
+        double total;
+    if (numberOfNights >= 3){
+        total = numberOfNights * DISCOUNT_RATE;
+    }
+    else{
+        total = numberOfNights * DAILY_RATE;
+    }
+        return total;
     }
 
     /*
@@ -35,17 +42,31 @@ public class Exercise04_HotelReservation {
     and on whether the guest requires parking (boolean).
 
     Examples:
-    calculateStayTotal(2, false) ➔ 199.98
+    calculateStayTotal(2,offers false) ➔ 199.98
     calculateStayTotal(2, true) ➔ 249.98
     calculateStayTotal(3, false) ➔ 269.97
     calculateStayTotal(3, true) ➔ 344.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking) {
-        return 0.0;
-    }
+            double total = 0;
+            double parkingFee = 25 * numOfTotalNights;
+
+            if (numOfTotalNights >= 3){
+                total = numOfTotalNights * DISCOUNT_RATE;
+            }
+            if(numOfTotalNights < 3){
+                total = numOfTotalNights * DAILY_RATE;
+            }
+            if(includesParking) {
+                return total + parkingFee;
+            }
+
+            return total + parkingFee;
+        }
+
 
     /*
-    Innovator's Inn offers late checkout—but it comes at a price.
+    Innovator's Inn  late checkout—but it comes at a price.
     A guest can reserve a late checkout for an additional fee of $20. 
     Calculate the stay total given the number of nights (int), 
     whether they require parking (boolean), and whether they require a late checkout (boolean). 

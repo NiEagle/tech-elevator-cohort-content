@@ -17,7 +17,7 @@ public class Exercise03_ShippingTotal {
      * Scamper Shipping Company charges $0.50 per pound for items up to and
      * including 40 pounds. It charges $0.75 per pound for items over 40 pounds.
      * Return the shipping rate when provided a weight in pounds.
-     * 
+     *
      * Examples:
      * calculateShippingRate(10) ➔ 0.50
      * calculateShippingRate(25) ➔ 0.50
@@ -25,6 +25,16 @@ public class Exercise03_ShippingTotal {
      * calculateShippingRate(45) ➔ 0.75
      */
     public double calculateShippingRate(int weightPounds) {
+
+        if (weightPounds <= MAX_WEIGHT_POUNDS) {
+            return UP_TO_40_LB_RATE;
+        }
+
+        if (weightPounds > MAX_WEIGHT_POUNDS) {
+            return OVER_40_LB_RATE;
+        }
+
+
         return 0.0;
     }
 
@@ -33,9 +43,9 @@ public class Exercise03_ShippingTotal {
      * including 40 pounds. It charges $0.75 per pound for items over 40 pounds.
      * Implement the logic needed to calculate the shipping cost when provided a
      * weight in pounds.
-     * 
+     *
      * You may use calculateShippingRate() in your solution.
-     * 
+     *
      * Examples:
      * calculateShippingTotal(10) ➔ 5.0
      * calculateShippingTotal(25) ➔ 12.5
@@ -43,8 +53,24 @@ public class Exercise03_ShippingTotal {
      * calculateShippingTotal(45) ➔ 33.75
      */
     public double calculateShippingTotal(int weightPounds) {
+        double rate = 0;
+
+        if (weightPounds <= 40) {
+            rate = 0.5;
+        }
+
+        if (weightPounds > 40) {
+            rate = 0.75;
+        }
+
+        else if (weightPounds != 0) {
+            double totalShippinFee = weightPounds * rate;
+            return totalShippinFee;
+        }
         return 0.0;
+
     }
+
 
     /*
      * Scamper Shipping Company now allows customers to provide a discount code to
