@@ -48,22 +48,15 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true) ➔ 344.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking) {
-            double total = 0;
-            double parkingFee = 25 * numOfTotalNights;
+        double stayTotal = calculateStayTotal(numOfTotalNights);
+        final double parkingPerNightFee = 25;
 
-            if (numOfTotalNights >= 3){
-                total = numOfTotalNights * DISCOUNT_RATE;
-            }
-            if(numOfTotalNights < 3){
-                total = numOfTotalNights * DAILY_RATE;
-            }
-            if(includesParking) {
-                return total + parkingFee;
-            }
-
-            return total + parkingFee;
+        if (includesParking) {
+            double totalWithParking = stayTotal + (parkingPerNightFee * numOfTotalNights);
+            return totalWithParking;
         }
-
+        return stayTotal;
+    }
 
     /*
     Innovator's Inn  late checkout—but it comes at a price.
@@ -82,6 +75,12 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true, true) ➔ 364.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking, boolean includesLateCheckout) {
-        return 0.0;
+        double stayTotal = calculateStayTotal(numOfTotalNights, includesParking);
+        double checkOutEarlFee = 20;
+        if(includesLateCheckout){
+            double finTotal = stayTotal + checkOutEarlFee;
+            return finTotal;
+        }
+        return stayTotal;
     }
 }
