@@ -43,6 +43,8 @@ public class Exercise01_StoreOrders {
 	 createOrder() → [10, 40, 31, 41]
      */
     public int[] createOrder() {
+        int createOrder[] = new createOrder[]{}
+
         return new int[] {};
     }
 

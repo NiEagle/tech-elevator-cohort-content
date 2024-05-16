@@ -61,6 +61,7 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE]) → 0
     getNumberOfFullRows([OCCUPIED, AVAILABLE, AVAILABLE, OCCUPIED, AVAILABLE, AVAILABLE]) → 0
      */
+    // variable to count every 3 times start a new row
     public int getNumberOfFullRows(boolean[] seatingChart) {
         return 0;
     }

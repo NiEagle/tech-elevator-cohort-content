@@ -40,7 +40,19 @@ public class Exercise01_TestGrading {
     gradeTestNumeric(10) ➔ 0
      */
     public int gradeTestNumeric(int score) {
-        return 0;
+        int numericGrade;
+        if(score >= 90){
+            numericGrade = 3;
+        }
+        else if(score >= 50){
+            numericGrade = 2;
+        }
+        else if(score >= 25){
+            numericGrade = 1;
+        }else{
+            numericGrade = 0;
+        }
+        return numericGrade;
     }
 
     /*
@@ -59,6 +71,19 @@ public class Exercise01_TestGrading {
     gradeTestLetter(45) ➔ 'F'
      */
     public char gradeTestLetter(int score) {
-        return ' ';
+        char letterGrade;
+        if (score >= 90) {
+            letterGrade = 'A';
+        } else if (score <= 89 && score >= 80) {
+            letterGrade = 'B';
+        } else if (score <= 79 && score >= 70) {
+            letterGrade = 'C';
+        } else if (score <= 69 && score >= 60) {
+            letterGrade = 'D';
+        } else {
+            letterGrade = 'F';
+        }
+        return letterGrade;
+
     }
 }
