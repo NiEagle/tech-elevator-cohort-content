@@ -421,15 +421,15 @@ public class Exercises {
         49. The Milky Way galaxy contains 300 billion stars. The Andromeda galaxy
         contains 1 trillion stars. How many stars do the two galaxies contain combined?
         */
-		long starsInMilkyWay = 300000000000;
-		long starsInAmdromeda = 1000000000000;
+		long starsInMilkyWay = 3000000 * 100000;
+		long starsInAmdromeda = 100 * 10000 * 1000000;
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
-		int totalCroissants = 17;
-		int guestWhomNeedCroissants = 7;
+		int totalCroissant = 17;
+		int guestWhomNeedCroissant = 7;
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
@@ -448,9 +448,9 @@ public class Exercises {
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
-		char firstName = '';
-		char lastName = '';
-		char middleInitial = '';
+		String firstName = "";
+		String lastName = "";
+		String middleInitial = "";
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
