@@ -162,7 +162,7 @@ public class Exercises {
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
         marbles does he have now?
         */
-		int joshsMarbles = 1;
+		int joshsMarbles = 16;
 		int lostMarbles = 7;
 		int currentMarbels = joshsMarbles - lostMarbles;
 
@@ -248,6 +248,11 @@ public class Exercises {
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
+        float pencilCosts = 0.07F;
+        float mrsHiltsMoney = 0.5F;
+        int numberOfPencils = (int)(mrsHiltsMoney / pencilCosts);
+
+
 
         /* Exercise 28
         28. Mrs. Hilt saw 33 butterflies. Some of the butterflies were red and others
@@ -337,9 +342,9 @@ public class Exercises {
         39. There are 100 cupcakes for 8 children to share. How much will each
         person get if they share the cupcakes equally?
         */
-		int quantityOfCupcake = 100;
-		int quantityOfChildren = 8;
-		int cupcakesPerChild = quantityOfCupcake / quantityOfChildren;
+		double quantityOfCupcake = 100;
+		double quantityOfChildren = 8;
+		double cupcakesPerChild = quantityOfCupcake / quantityOfChildren;
 
         /* Exercise 40
         40. She made 47 gingerbread cookies which she will distribute equally in
@@ -366,6 +371,7 @@ public class Exercises {
         */
 		int oatmealCookieTotal = 276;
 		int amountPerTrays = 12;
+		int amountOfTrays = oatmealCookieTotal / amountPerTrays;
 
         /* Exercise 43
         43. Marian’s friends were coming over that afternoon so she made 480
@@ -374,6 +380,7 @@ public class Exercises {
         */
 		int amountOfPretzels = 480;
 		int amountPerServings = 12;
+		int totalServings = amountOfPretzels / amountPerServings;
 
         /* Exercise 44
         44. Lastly, she baked 53 lemon cupcakes for the children living in the city
@@ -382,7 +389,9 @@ public class Exercises {
         */
 		int amountOfLemonCakes = 53;
 		int lemonCakesLeftover = 2;
-		int lemonCakesPerBox = 3;
+		double lemonCakesPerBox = 3;
+		int boxesOfCakes = (int) ((amountOfLemonCakes + lemonCakesLeftover) * (1 / lemonCakesPerBox) - 1);
+
 
         /* Exercise 45
         45. Susie's mom prepared 74 carrot sticks for breakfast. If the carrots
@@ -391,6 +400,7 @@ public class Exercises {
         */
 		int amountOfCarrotSticks = 74;
 		int amountOfPeople = 12;
+		int leftOverCarrots = amountOfCarrotSticks % amountOfPeople;
 
         /* Exercise 46
         46. Susie and her sister gathered all 98 of their teddy bears and placed
@@ -399,6 +409,7 @@ public class Exercises {
         */
 		int amountOfTeddyBears = 98;
 		int bearPerShelf = 7;
+		int amountOfShelves = amountOfTeddyBears / bearPerShelf;
 
         /* Exercise 47
         47. Susie’s mother collected all family pictures and wanted to place all of
@@ -407,6 +418,7 @@ public class Exercises {
         */
 		int totalFamPicsPerAlbum = 20;
 		int totalFamPics = 480;
+		int albumsNeeded = totalFamPics / totalFamPicsPerAlbum;
 
         /* Exercise 48
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -416,20 +428,24 @@ public class Exercises {
         */
 		int totalCardsInRoom = 94;
 		int cardsPerBox = 8;
+		int amountOfBoxes = totalCardsInRoom / cardsPerBox;
+		int leftOverCardInLastBox = totalCardsInRoom % cardsPerBox;
 
         /* Exercise 49
         49. The Milky Way galaxy contains 300 billion stars. The Andromeda galaxy
         contains 1 trillion stars. How many stars do the two galaxies contain combined?
         */
-		long starsInMilkyWay = 3000000 * 100000;
-		long starsInAmdromeda = 100 * 10000 * 1000000;
+		long starsInMilkyWay = 300_000_000_000L;
+		long starsInAmdromeda = 1_000_000_000_000L;
+		long totalStars = starsInAmdromeda + starsInMilkyWay;
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
-		int totalCroissant = 17;
-		int guestWhomNeedCroissant = 7;
+		double totalCroissant = 17;
+		double guestWhomNeedCroissant = 7;
+		double evenCroissantDistribution = (double) ((totalCroissant) / (guestWhomNeedCroissant));
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
@@ -437,9 +453,12 @@ public class Exercises {
 	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates, 
 	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
-     	double billStandardTime = 2.15;
-		double jillStandardTime = 1.90;
+     	double billStandardHourPerRoom = 1/2.15;
+		double jillStandardHourPerRoom = 1/1.90;
 		int totalRooms = 5;
+		double groupRateHourPerRoom = (billStandardHourPerRoom + jillStandardHourPerRoom);
+		double hoursForTotalRooms = totalRooms/groupRateHourPerRoom;
+
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
@@ -448,9 +467,10 @@ public class Exercises {
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
-		String firstName = "";
-		String lastName = "";
-		String middleInitial = "";
+		String firstName = "Grace";
+		String lastName = "Hopper";
+		String middleInitial = "B";
+		String userName = lastName + ", " + firstName + " " + middleInitial + ".";
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
