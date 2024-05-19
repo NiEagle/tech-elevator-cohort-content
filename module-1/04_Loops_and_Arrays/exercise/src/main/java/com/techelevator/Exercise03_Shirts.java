@@ -17,7 +17,8 @@ public class Exercise03_Shirts {
     buildOrder() → ['S', 'S', 'S', 'M', 'M', 'L']
      */
     public char[] buildOrder() {
-        return new char[] {};    
+        char[] buildOrder = new char[]{'S','S','S','M','M','L'};
+        return buildOrder;
     }
 
     /*
@@ -36,8 +37,26 @@ public class Exercise03_Shirts {
     buildBulkOrder(4) → ['S', 'M', 'L', 'S']
     buildBulkOrder(0) → []
      */
-    public char[] buildBulkOrder(int numberOfShirts) { 
-        return new char[] {};    
+    public char[] buildBulkOrder(int numberOfShirts) {
+        char[] buildDistributedOrder = new char[numberOfShirts];
+
+        for(int i = 0; i< numberOfShirts ;i++) {
+
+//            buildDistributedOrder[i] = 'S';
+//            buildDistributedOrder[i + 1] = 'M';
+//            buildDistributedOrder[i + 2] = 'L';
+//Dosnt work as it pushes out of the limit of the array
+            if (i % 2 == 0) {
+                buildDistributedOrder[i] = 'M';
+                break;
+            }
+            else if (i % 3 == 0) {
+                buildDistributedOrder[i] = 'L';
+                break;
+            }
+            buildDistributedOrder[i] = 'S';
+        }
+        return buildDistributedOrder;
     }
 
     /*
