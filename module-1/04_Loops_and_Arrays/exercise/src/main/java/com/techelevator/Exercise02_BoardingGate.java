@@ -76,16 +76,14 @@ public class Exercise02_BoardingGate {
     // variable to count every 3 times start a new row
     public int getNumberOfFullRows(boolean[] seatingChart) {
         int areRowsFull = 0;
+
+
         for  (int i=0; i < seatingChart.length;i+=3){
 //loops every three
-            for (int j = 0; j <= 3; j++) {
-// loops thru three checking if all = false
-
-                if (seatingChart[j]) {
-                    areRowsFull = areRowsFull + 1;
-                    break;
-                }
+            if((seatingChart[i] == false) && (seatingChart[i+1]== false) && (seatingChart[i+2] == false) ){
+                areRowsFull =   areRowsFull + 1;
             }
+// loops thru three checking if all = false
             }
         return areRowsFull;
     }
