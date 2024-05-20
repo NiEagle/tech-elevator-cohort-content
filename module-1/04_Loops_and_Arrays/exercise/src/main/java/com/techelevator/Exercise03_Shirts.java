@@ -40,21 +40,19 @@ public class Exercise03_Shirts {
     public char[] buildBulkOrder(int numberOfShirts) {
         char[] buildDistributedOrder = new char[numberOfShirts];
 
-        for(int i = 0; i< numberOfShirts ;i++) {
+        for(int i = 0; i < numberOfShirts ;i++) {
+            if( i == 0 || i == 3 || i == 6 ){
+                buildDistributedOrder[i] = 'S';
 
-//            buildDistributedOrder[i] = 'S';
-//            buildDistributedOrder[i + 1] = 'M';
-//            buildDistributedOrder[i + 2] = 'L';
-//Dosnt work as it pushes out of the limit of the array
-            if (i % 2 == 0) {
+            }
+            else if(i == 1 || i == 4 || i == 7){
                 buildDistributedOrder[i] = 'M';
-                break;
             }
-            else if (i % 3 == 0) {
+            else if(i == 2 || i == 5 || i == 8 ){
                 buildDistributedOrder[i] = 'L';
-                break;
             }
-            buildDistributedOrder[i] = 'S';
+
+
         }
         return buildDistributedOrder;
     }
@@ -73,6 +71,14 @@ public class Exercise03_Shirts {
     placeRequest([]) → false
      */
     public boolean placeRequest(char[] order) {
-        return false; 
+        boolean reaquestSmall = false;
+
+        for(int i = 0; i < order.length; i ++){
+        if(order[i] == 'S'){
+        reaquestSmall = true;
+        }
+    }
+
+     return reaquestSmall;
     }
 }
