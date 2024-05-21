@@ -9,7 +9,7 @@ public class Fibonacci {
 //		0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 //		Please enter a number: 34
 //		0, 1, 1, 2, 3, 5, 8, 13, 21, 34
-		String messageLength = "Please a number ";
+		String messageLength = "Please enter a number: ";
 		System.out.println(messageLength);
 		String response = fibScanner.next();
 		int sum = 0;
