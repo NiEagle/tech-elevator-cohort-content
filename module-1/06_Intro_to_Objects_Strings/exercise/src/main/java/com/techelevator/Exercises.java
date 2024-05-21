@@ -321,7 +321,9 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		String strNew =  comboString(str.substring(0,2),str.substring(str.length() - 1,str.length()));
+
+
+		}
 		return strNew;
 	}
 
@@ -335,6 +337,7 @@ public class Exercises {
 	public String stringYak(String str) {
 	String varString = str.replace("yak","");
 		return varString;
+	}
 	}
 
 }
