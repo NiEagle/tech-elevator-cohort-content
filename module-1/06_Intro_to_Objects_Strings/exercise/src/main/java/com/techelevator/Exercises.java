@@ -321,7 +321,8 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String strNew =  comboString(str.substring(0,2),str.substring(str.length() - 1,str.length()));
+		return strNew;
 	}
 
 	/*
@@ -332,7 +333,8 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+	String varString = str.replace("yak","");
+		return varString;
 	}
 
 }
