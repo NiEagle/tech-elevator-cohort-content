@@ -17,9 +17,9 @@ public class DecimalToBinary {
 		for (int j = 0; decimalAsAInt >= 1; j++) {
 
 			if (decimalAsAInt % 2 == 0) {
-				binaryNumber = binaryNumber + "1";
+				binaryNumber =  "0" + binaryNumber;
 			} else if (decimalAsAInt % 2 != 0) {
-				binaryNumber = binaryNumber + "0";
+				binaryNumber = "1" + binaryNumber;
 			}
 			decimalAsAInt = decimalAsAInt / 2;
 		}
