@@ -21,8 +21,20 @@ public class Exercises {
 	 * crocodile -> float
 	 *
 	 */
-	public Map<String, String> animalGroupName() {
-		return null;
+	public Map<String, String> animalsMap() {
+		Map<String, String> animalAndGroupNameMap = new HashMap<>();
+		animalAndGroupNameMap.put("rhino", "crash" );
+		animalAndGroupNameMap.put("giraffe", "tower" );
+		animalAndGroupNameMap.put("elephant", "herd" );
+		animalAndGroupNameMap.put("lion", "pride" );
+		animalAndGroupNameMap.put("crow", "murder" );
+		animalAndGroupNameMap.put("pigeon", "kit" );
+		animalAndGroupNameMap.put("flamingo", "pat" );
+		animalAndGroupNameMap.put("deer", "herd" );
+		animalAndGroupNameMap.put("dog", "pack" );
+		animalAndGroupNameMap.put("crocodile", "float" );
+
+		return animalAndGroupNameMap;
 	}
 
 	/*
@@ -47,8 +59,17 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(Map<String, Double> itemsOnSale, String itemNumber) {
-		return -1.0;
+		{
+			//SPECIAL CASES
+			return 00.0;
+		}
+		// GOT TO MAP IS .GET
+		//TOO UPERCASE
+		//
+
+
 	}
+
 
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
@@ -63,7 +84,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		//NOT A NEW MAP
+		//IF PETER > 0 TAKE HALF GIVE IT TO PAUL IF PAUL HAS < 10
+
+		if(peterPaul.get("Paul") < 1000) {
+			int petersMoney = peterPaul.get("Peter") / 2;
+			peterPaul.put("Peter", petersMoney);
+			peterPaul.put("Paul", (peterPaul.get("Paul") + petersMoney));
+		}
+
+		return peterPaul;
 	}
 
 	/*
@@ -107,6 +137,9 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
+		//IF YOU TRY TO GET AND GET NULL IT DOSNT EXIST ADD IT AS KEY WITH VALUE 1
+		//COUNTING WORDS
+
 		return null;
 	}
 
@@ -123,6 +156,7 @@ public class Exercises {
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
 		return null;
+		//MAKE A MAP SAME AS UP BUT NUMS
 	}
 
 	/*
@@ -136,6 +170,8 @@ public class Exercises {
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
 		return null;
+		//CREATE MAP, LOOP THRU ARRAY,
+		// INITIALIZE TO FALSE USE CONTAINS AND IF YOU RUN INTO AGAIN SWITCH IF CONTAINS  = FALSE
 	}
 
 	/*
@@ -151,6 +187,7 @@ public class Exercises {
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
 		return null;
+	//TAKE ONE AS BASE AND MERGE THE OTHER IN
 	}
 
 	/*
@@ -171,5 +208,5 @@ public class Exercises {
 	public Map<String, Integer> last2Revisited(String[] words) {
 		return null;
 	}
-
+//LAST 2 IS THE STRING YOU LOOK FOR BUT COUNT UP TO THE LAST 2 //0 - LENGTH-2
 }
