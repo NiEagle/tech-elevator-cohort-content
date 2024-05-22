@@ -107,6 +107,13 @@ public class Exercises {
      interleaveLists( [1, 2, 5, 8, 10], [4, 5, 6] )  ->  [1, 4, 2, 5, 5, 6, 8, 10]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+		List<Integer> interleaveValues = new ArrayList<Integer>();
+
+		for (int i = 0; i < (listOne.size() + listTwo.size()); i++) {
+			interleaveValues += listOne.get(i) + listTwo.get(i);
+
+		}
+
 		return null;
 	}
 

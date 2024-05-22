@@ -9,7 +9,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		String helloWithName = "Hello "+ name + "!";
+		return helloWithName;
 	}
 
 	/*
@@ -20,7 +21,8 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		String comboOfWordsAndInverse = a + b + b + a ;
+		return comboOfWordsAndInverse;
 	}
 
 	/*
@@ -32,7 +34,16 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+		String wordWithTag = word;
+		if (tag.contains("cite")) {
+			wordWithTag = "<cite>" + wordWithTag + "</cite>";
+			return wordWithTag;
+		} else if (tag.equals("i")) {
+
+			wordWithTag = "<i>" + wordWithTag + "</i>";
+			return wordWithTag;
+		}
+		return "<>" + word + "</>";
 	}
 
 	/*
@@ -44,8 +55,12 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
-	}
+		String outPart1 = out.substring( 0, 2);
+		String outPart2 = out.substring( 2);
+
+
+		return outPart1 + word + outPart2;
+		}
 
 	/*
 	 Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string
@@ -55,7 +70,9 @@ public class Exercises {
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		return null;
+		String valueEnd = str.substring(str.length()-2);
+		String tripleEnd = valueEnd + valueEnd + valueEnd;
+		return tripleEnd;
 	}
 
 	/*
@@ -67,7 +84,11 @@ public class Exercises {
 	 firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		return null;
+		if(str.length() < 2 ){
+			return str;
+		}
+		String firstTwoOfStr = str.substring(0,2);
+		return firstTwoOfStr;
 	}
 
 	/*
@@ -76,8 +97,9 @@ public class Exercises {
 	 firstHalf("HelloThere") → "Hello"
 	 firstHalf("abcdef") → "abc"
 	 */
-	public String firstHalf(String str) {
-		return null;
+	public String firstHalf(String str)  {
+		String firstHalfOfStr = str.substring(0,str.length()/2);
+		return firstHalfOfStr;
 	}
 
 	/*
@@ -88,7 +110,8 @@ public class Exercises {
 	 withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		String withouCharCaps = str.substring(1,str.length() -1);
+		return withouCharCaps;
 	}
 
 	/*
@@ -100,7 +123,10 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		if (a.length() < b.length()) {
+			return a + b + a;
+		}
+		return b + a + b;
 	}
 
 	/*
@@ -111,7 +137,9 @@ public class Exercises {
 	 nonStart("shotl", "java") → "hotlava"
 	 */
 	public String nonStart(String a, String b) {
-		return null;
+	String aWithoutFirst = a.substring(1);
+		String bWithoutFirst = b.substring(1);
+		return aWithoutFirst + bWithoutFirst;
 	}
 
 	/*
@@ -122,7 +150,12 @@ public class Exercises {
 	 left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
-		return null;
+		String firstHalfStr = str.substring(0, 2);
+		String secondHalfStr = str.substring(2);
+		if (str.length() > 2) {
+			return secondHalfStr + firstHalfStr;
+		}
+		return str;
 	}
 
 	/*
@@ -132,8 +165,13 @@ public class Exercises {
 	 right2("java") → "vaja"
 	 right2("Hi") → "Hi"
 	 */
-	public String right2(String str) {
-		return null;
+	public String right2(String str)  {
+		String restOfStr = str.substring(0, str.length()-2);
+		String backTwoOfStr = str.substring(str.length()-2);
+		if (str.length() > 2) {
+			return backTwoOfStr + restOfStr;
+		}
+		return str;
 	}
 
 	/*
@@ -144,7 +182,12 @@ public class Exercises {
 	 theEnd("oh", true) → "o"
 	 */
 	public String theEnd(String str, boolean front) {
-		return null;
+		String firstCharOfStr = str.substring(0, 1);
+		String lastCharOfStr = str.substring(str.length()-1);
+		if (front) {
+			return firstCharOfStr;
+		}
+		return lastCharOfStr;
 	}
 
 	/*
@@ -155,8 +198,15 @@ public class Exercises {
 	 withoutEnd2("ab") → ""
 	 */
 	public String withoutEnd2(String str) {
-		return null;
-	}
+		String noCaps = "";
+		if (str.length() <= 2) {
+			return noCaps;
+		}
+		noCaps = str.substring(1, str.length()-1);
+
+		return noCaps;
+		}
+
 
 	/*
 	 Given a string of even length, return a string made of the middle two chars, so the string "string"
@@ -166,7 +216,8 @@ public class Exercises {
 	 middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		return null;
+		String middleValuesOfStr = str.substring(str.length()/2 - 1,str.length()/2 + 1);
+		return middleValuesOfStr;
 	}
 
 	/*
@@ -176,9 +227,16 @@ public class Exercises {
 	 endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
+
+
+		if (str.length() > 2 || str.equals("ly")) {
+			String lastTwoOfWord = str.substring(str.length() - 2);
+			if (lastTwoOfWord.equals("ly") || lastTwoOfWord.equals("Ly") || lastTwoOfWord.equals("LY")|| str.equals("ly")) {
+				return true;
+			}
+		}
 		return false;
 	}
-
 	/*
 	 Given a string and an int n, return a string made of the first and last n chars from the string. The
 	 string length will be at least n.
@@ -186,9 +244,9 @@ public class Exercises {
 	 nTwice("Chocolate", 3) → "Choate"
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
-	public String nTwice(String str, int n) {
-		return null;
-	}
+		public String nTwice (String str,int n){
+			return null;
+		}
 
 	/*
 	 Given a string and an int n, return a string that starts at n and has a length of 2. Note that n may or may not be a valid
@@ -320,12 +378,12 @@ public class Exercises {
 	 altPairs("Chocolate") → "Chole"
 	 altPairs("CodingHorror") → "Congrr"
 	 */
-	public String altPairs(String str) {
-
-
-		}
-		return strNew;
-	}
+//	public String altPairs(String str) {
+//
+//
+//		}
+//		return strNew;
+//	}
 
 	/*
 	 Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed.
@@ -340,4 +398,3 @@ public class Exercises {
 	}
 	}
 
-}
