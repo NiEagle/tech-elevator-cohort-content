@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Exercises {
@@ -21,20 +22,21 @@ public class Exercises {
 	 * crocodile -> float
 	 *
 	 */
-	public Map<String, String> animalsMap() {
-		Map<String, String> animalAndGroupNameMap = new HashMap<>();
-		animalAndGroupNameMap.put("rhino", "crash" );
-		animalAndGroupNameMap.put("giraffe", "tower" );
-		animalAndGroupNameMap.put("elephant", "herd" );
-		animalAndGroupNameMap.put("lion", "pride" );
-		animalAndGroupNameMap.put("crow", "murder" );
-		animalAndGroupNameMap.put("pigeon", "kit" );
-		animalAndGroupNameMap.put("flamingo", "pat" );
-		animalAndGroupNameMap.put("deer", "herd" );
-		animalAndGroupNameMap.put("dog", "pack" );
-		animalAndGroupNameMap.put("crocodile", "float" );
+	public Map<String, String> animalsMap(){
+		Map<String, String> animalsMap = new HashMap<>();
 
-		return animalAndGroupNameMap;
+		animalsMap.put("rhino", "crash");
+		animalsMap.put("giraffe", "tower");
+		animalsMap.put("elephant", "herd");
+		animalsMap.put("lion", "pride");
+		animalsMap.put("crow", "murder");
+		animalsMap.put("pigeon", "kit");
+		animalsMap.put("flamingo", "pat");
+		animalsMap.put("deer", "herd");
+		animalsMap.put("dog", "pack");
+		animalsMap.put("crocodile", "float");
+
+		return animalsMap;
 	}
 
 	/*
@@ -59,16 +61,22 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(Map<String, Double> itemsOnSale, String itemNumber) {
-		{
+		String upperCase = itemNumber.toUpperCase(Locale.ROOT);
+		Boolean isOnSaleNull = itemsOnSale.get(upperCase).equals(null);
+		Boolean isItemOnSaleEmpty = itemsOnSale.get(upperCase).equals("");
+
+		if(isItemOnSaleEmpty || isOnSaleNull){
 			//SPECIAL CASES
-			return 00.0;
+			return 0.00;
 		}
+		return itemsOnSale.get(upperCase);
+	}
 		// GOT TO MAP IS .GET
 		//TOO UPERCASE
 		//
 
 
-	}
+
 
 
 	/*
@@ -87,10 +95,15 @@ public class Exercises {
 		//NOT A NEW MAP
 		//IF PETER > 0 TAKE HALF GIVE IT TO PAUL IF PAUL HAS < 10
 
-		if(peterPaul.get("Paul") < 1000) {
-			int petersMoney = peterPaul.get("Peter") / 2;
+		int petersMoneyInt = peterPaul.get("Peter");
+		int moneyToGive = petersMoneyInt/2;
+		int paulsMoney = moneyToGive + peterPaul.get("Paul");
+		int petersMoney = petersMoneyInt - moneyToGive;
+
+		if((peterPaul.get("Paul") < 1000) && (peterPaul.get("Peter") > 0)){
+
 			peterPaul.put("Peter", petersMoney);
-			peterPaul.put("Paul", (peterPaul.get("Paul") + petersMoney));
+			peterPaul.put("Paul", paulsMoney);
 		}
 
 		return peterPaul;
@@ -106,7 +119,26 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		int petersPartOfCombo = peterPaul.get("Peter")/4;
+		int petersMoneyAfterCombo = peterPaul.get("Peter") - petersPartOfCombo;
+
+		int paulsPartOfCombo = peterPaul.get("Paul")/4;
+		int paulsMoneyAfterCombo = peterPaul.get("Paul") - paulsPartOfCombo;
+
+		int comboFunds = paulsPartOfCombo + petersPartOfCombo;
+
+			if (peterPaul.get("Peter") >= 5000 && peterPaul.get("Paul") >= 10000){
+				peterPaul.put("Partnership", comboFunds);
+				peterPaul.put("Paul", paulsMoneyAfterCombo);
+				peterPaul.put("Peter", petersMoneyAfterCombo);
+
+
+
+
+
+
+			}
+		return peterPaul;
 	}
 
 	/*
