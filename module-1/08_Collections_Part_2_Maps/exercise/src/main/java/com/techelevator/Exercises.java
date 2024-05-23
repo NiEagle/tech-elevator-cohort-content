@@ -59,15 +59,17 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(Map<String, Double> itemsOnSale, String itemNumber) {
-		String upperCase = itemNumber.toUpperCase(Locale.ROOT);
-		Boolean isOnSaleNull = itemsOnSale.get(upperCase).equals(null);
-		Boolean isItemOnSaleEmpty = itemsOnSale.get(upperCase).equals("");
-
-		if(isItemOnSaleEmpty || isOnSaleNull){
-			//SPECIAL CASES
+		if(itemNumber == null || itemsOnSale.isEmpty()){
 			return 0.00;
 		}
-		return itemsOnSale.get(upperCase);
+		String upperCase = itemNumber.toUpperCase(Locale.ROOT);
+		if(itemsOnSale.containsKey(upperCase)){
+			return itemsOnSale.get(upperCase);
+		}
+		else{
+			return 0.00;
+		}
+
 	}
 		// GOT TO MAP IS .GET
 		//TOO UPERCASE
@@ -257,16 +259,35 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
+		remoteWarehouse.keySet();
+		mainWarehouse.keySet();
 
-
-
-
-
-
-
-		return null;
-	//TAKE ONE AS BASE AND MERGE THE OTHER IN
+		for (String key : remoteWarehouse.keySet()) {
+			if (mainWarehouse.containsKey(key)) {
+				mainWarehouse.put(key, remoteWarehouse.get(key) + mainWarehouse.get(key));
+			}
+			else if(!mainWarehouse.containsKey(key)) {
+				mainWarehouse.put(key, remoteWarehouse.get(key));
+			}
+		}
+		return mainWarehouse;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//TAKE ONE AS BASE AND MERGE THE OTHER IN
 
 	/*
 	 * Just when you thought it was safe to get back in the water --- last2Revisited!!!!
@@ -283,19 +304,9 @@ public class Exercises {
 	 * last2Revisited(["hixxhi", "xaxxaxaxx", "axxxaaxx"]) → {"hixxhi": 1, "xaxxaxaxx": 1, "axxxaaxx": 2}
 	 *
 	 */
-	public Map<String, Integer> last2Revisited(String[] words) {
-		Map<String, Integer> last2Map = new HashMap<>();
+	public Map<String, Integer> last2Revisited(String[]words){
 
-	for(int i =0; i < words.length; i++){
-		int lastTwo = words.length;
-		String lastTwoChar = words[i].substring( words[i].length()-2);
-
-		last2Map.put(words[i], lastTwo);
-
-	}
-
-
-		return last2Map;
+		return null;
 	}
 //LAST 2 IS THE STRING YOU LOOK FOR BUT COUNT UP TO THE LAST 2 //0 - LENGTH-2
 }
