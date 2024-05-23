@@ -1,8 +1,6 @@
 package com.techelevator;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 public class Exercises {
 
@@ -22,21 +20,21 @@ public class Exercises {
 	 * crocodile -> float
 	 *
 	 */
-	public Map<String, String> animalsMap(){
-		Map<String, String> animalsMap = new HashMap<>();
+	public Map<String, String> animalGroupName(){
+		Map<String, String> animalsMaps = new HashMap<>();
 
-		animalsMap.put("rhino", "crash");
-		animalsMap.put("giraffe", "tower");
-		animalsMap.put("elephant", "herd");
-		animalsMap.put("lion", "pride");
-		animalsMap.put("crow", "murder");
-		animalsMap.put("pigeon", "kit");
-		animalsMap.put("flamingo", "pat");
-		animalsMap.put("deer", "herd");
-		animalsMap.put("dog", "pack");
-		animalsMap.put("crocodile", "float");
+		animalsMaps.put("rhino", "crash");
+		animalsMaps.put("giraffe", "tower");
+		animalsMaps.put("elephant", "herd");
+		animalsMaps.put("lion", "pride");
+		animalsMaps.put("crow", "murder");
+		animalsMaps.put("pigeon", "kit");
+		animalsMaps.put("flamingo", "pat");
+		animalsMaps.put("deer", "herd");
+		animalsMaps.put("dog", "pack");
+		animalsMaps.put("crocodile", "float");
 
-		return animalsMap;
+		return animalsMaps;
 	}
 
 	/*
@@ -153,7 +151,14 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		//Given an array of non empty strings, return a map
+		Map<String, String> arrayCaps = new HashMap<>();
+		for ( String word : words){
+			String firstCap = String.valueOf(word.charAt(0));
+			String lastCap = String.valueOf(word.charAt(word.length()-1));
+		arrayCaps.put(firstCap,lastCap);
+		}
+		return arrayCaps;
 	}
 
 	/*
@@ -169,11 +174,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		//IF YOU TRY TO GET AND GET NULL IT DOSNT EXIST ADD IT AS KEY WITH VALUE 1
-		//COUNTING WORDS
+		Map<String, Integer> wordCountMap = new HashMap<>();
+		int wordCounter = 0;
 
-		return null;
-	}
+		for (String word : words) {
+			if (!wordCountMap.containsKey(word)) {
+				wordCountMap.put(word, 0);
+			}
+			//IF YOU TRY TO GET AND GET NULL IT DOSNT EXIST ADD IT AS KEY WITH VALUE 1
+			//COUNTING WORDS
+			wordCountMap.put(word, wordCountMap.get(word) + 1 ) ;
+		}
+			return wordCountMap;
+		}
+
 
 	/*
 	 * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
@@ -187,7 +201,19 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> intCountMap = new HashMap<>();
+		int wordCounter = 0;
+
+		for (Integer nums : ints) {
+			if (!intCountMap.containsKey(nums)) {
+				intCountMap.put(nums, 0);
+			}
+			//IF YOU TRY TO GET AND GET NULL IT DOSNT EXIST ADD IT AS KEY WITH VALUE 1
+			//COUNTING WORDS
+			intCountMap.put(nums, intCountMap.get(nums) + 1 ) ;
+		}
+
+		return intCountMap;
 		//MAKE A MAP SAME AS UP BUT NUMS
 	}
 
@@ -201,7 +227,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> wordAppearsTwiceMap = new HashMap<>();
+
+		for (String word: words) {
+
+		if(wordAppearsTwiceMap.containsKey(word)){
+			wordAppearsTwiceMap.put(word, true);
+
+		}
+		else{
+			wordAppearsTwiceMap.put(word, false);
+		}
+		}
+
+		return wordAppearsTwiceMap;
 		//CREATE MAP, LOOP THRU ARRAY,
 		// INITIALIZE TO FALSE USE CONTAINS AND IF YOU RUN INTO AGAIN SWITCH IF CONTAINS  = FALSE
 	}
@@ -218,6 +257,13 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
+
+
+
+
+
+
+
 		return null;
 	//TAKE ONE AS BASE AND MERGE THE OTHER IN
 	}
@@ -238,7 +284,18 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> last2Map = new HashMap<>();
+
+	for(int i =0; i < words.length; i++){
+		int lastTwo = words.length;
+		String lastTwoChar = words[i].substring( words[i].length()-2);
+
+		last2Map.put(words[i], lastTwo);
+
+	}
+
+
+		return last2Map;
 	}
 //LAST 2 IS THE STRING YOU LOOK FOR BUT COUNT UP TO THE LAST 2 //0 - LENGTH-2
 }
