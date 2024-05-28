@@ -32,4 +32,21 @@ public class Employee {
     public void setDepartment(String department) {
         this.department = department;
     }
+    //CONSTRUCTOR
+    public Employee(int employeeId, String firstName, String lastName, double annualSalary){
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.annualSalary = annualSalary;
+    }
+
+    //methodsCreate a method called raiseSalary() that accepts a double called percent and returns void. The method increases the current annual salary by the percentage provided. For example, 5.5 represents 5.5%.
+
+    public void raiseSalary(double percent){
+        this.annualSalary= this.annualSalary + (this.annualSalary * (percent / 100));
+
+    }
+    public String getFullName(){
+        return lastName + ", " + firstName;
+    }
 }
