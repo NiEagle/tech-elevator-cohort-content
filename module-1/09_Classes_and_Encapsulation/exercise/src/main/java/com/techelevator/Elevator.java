@@ -45,6 +45,7 @@ public class Elevator {
         while (this.isDoorOpen == false){
             if(this.currentFloor < desiredFloor) {
                 this.currentFloor = this.currentFloor + 1;
+                break;
             }
 
         }
@@ -53,6 +54,7 @@ public class Elevator {
             while (this.isDoorOpen == false){
                 if(this.currentFloor > desiredFloor) {
                     this.currentFloor = this.currentFloor - 1;
+                    break;
                 }
             }
         }
