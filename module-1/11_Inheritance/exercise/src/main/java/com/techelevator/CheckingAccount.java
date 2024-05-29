@@ -11,9 +11,28 @@ public class CheckingAccount extends BankAccount{
     }
 
     //OVERRIDE METHOD
-    public void withdraw(){
+    public int withdraw(int amountToWithdraw){
+        int overDraftFee = 10;
+        int balance = getBalance();
+        int updatedBalance = balance - amountToWithdraw;
+
+        if(updatedBalance <= -100 ){
+        amountToWithdraw = 0;
+          return balance;
+
+        }
+        else if(updatedBalance < 0 && updatedBalance > -100 ){
+          amountToWithdraw = (amountToWithdraw + overDraftFee);
+         return super.withdraw(amountToWithdraw);
+        }
+        else {
+            return super.withdraw(amountToWithdraw);
+        }
+        }
 
 
-    }
-    super.;
+//
+//
+//    }
+
 }

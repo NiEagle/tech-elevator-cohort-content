@@ -21,14 +21,17 @@ public class BankAccount {
 
    //METHODS
     public int deposit(int amountToDepoit){
-        return this.balance + amountToDepoit;
+        if(amountToDepoit > 0) {
+            this.balance = this.balance + amountToDepoit;
+        }
+        return this.balance;
     }
    public int withdraw(int amountToWithdraw){
-        if(balance >= amountToWithdraw){
-        return this.balance - amountToWithdraw;
-        }
-    return balance;
-    }
+       if(amountToWithdraw > 0) {
+          this.balance = this.balance - amountToWithdraw;
+       }
+       return this.balance;
+   }
 
 
     //GETTERS

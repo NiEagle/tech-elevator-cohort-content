@@ -11,10 +11,22 @@ public class SavingsAccount  extends BankAccount {
     }
     //METHODS
     public int withdraw(int amountToWithdraw){
+        int serviceFeeCharge = 2;
         int balance = getBalance();
-        int serviceCharge = 2;
-        amountToWithdraw = amountToWithdraw + serviceCharge;
-    super.withdraw(amountToWithdraw);
-        return amountToWithdraw;
-}
+        int updatedBalance = balance - amountToWithdraw;
+
+        if (updatedBalance - serviceFeeCharge < 0){
+            return balance;
+        }
+        else if(updatedBalance  < 150 ){
+            amountToWithdraw = (amountToWithdraw + serviceFeeCharge);
+            return super.withdraw(amountToWithdraw);
+
+        }
+
+        else {
+            return super.withdraw(amountToWithdraw);
+        }
+    }
+
 }

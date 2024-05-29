@@ -1,4 +1,4 @@
-package com.techelevator.farm;
+package com.techelevator.farm.farm;
 
 public class Cow extends FarmAnimal {
 
