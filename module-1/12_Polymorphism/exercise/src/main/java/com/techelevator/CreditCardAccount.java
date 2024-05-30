@@ -9,6 +9,10 @@ public class CreditCardAccount implements Accountable{
     private int balance;
 
     //CONSTRUCTORS
+    public CreditCardAccount(String accountHolderName,String cardNumber){
+    this.accountHolderName = accountHolderName;
+    this.cardNumber = cardNumber;
+    }
 
     //METHODS
 public int pay(int amountToPay){
