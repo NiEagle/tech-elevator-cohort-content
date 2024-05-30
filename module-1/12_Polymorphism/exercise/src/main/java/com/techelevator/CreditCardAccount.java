@@ -6,7 +6,6 @@ public class CreditCardAccount implements Accountable{
     private String accountHolderName;
     private String cardNumber;
     private int debt;
-    private int balance;
 
     //CONSTRUCTORS
     public CreditCardAccount(String accountHolderName,String cardNumber){
@@ -16,19 +15,18 @@ public class CreditCardAccount implements Accountable{
 
     //METHODS
 public int pay(int amountToPay){
-
-    return null;
+if(amountToPay > 0){
+    debt -=  amountToPay;
+}
+    return debt;
 }
 
 public int charge(int amountToCharge){
-
-    return null;
+if(amountToCharge > 0){
+    debt += amountToCharge;
 }
-
-
-
-
-
+    return debt;
+}
 
 
     //GETTERS/SETTERS
@@ -46,6 +44,6 @@ public int charge(int amountToCharge){
 
     @Override
     public int getBalance() {
-        return 0;
+        return debt * -1;
     }
 }
