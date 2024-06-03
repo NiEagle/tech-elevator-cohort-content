@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /*
@@ -10,12 +12,29 @@ import org.junit.Test;
  */
 public class CigarPartyTest {
 
-    private CigarParty sut;
+    private CigarParty  sut;
 
+  @Before
     public void setup(){
         sut = new CigarParty();
 
     }
+    //TESTING WEEKEND IS TRUE
+    @Test
+    public void testHavePartyMaxRangeWeekend() {
 
-    // W
+        Assert.assertEquals(true, sut.haveParty(60,true));
+
+    }
+    @Test
+    public void testHavePartyMinRangeWeekend() {
+
+        Assert.assertEquals(true, sut.haveParty(40,true));
+
+    }
+    
+
+
+
+
 }
