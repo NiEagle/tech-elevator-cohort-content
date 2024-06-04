@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class MaxEnd3 {
+public class MaxEnd {
 
     /*
      * Given an array of ints length 3, figure out which is larger between the first and last elements
