@@ -6,8 +6,32 @@ public class OrderUI {
 
     private Scanner myScanner = new Scanner(System.in);
 
+    public String showMainMenu(){
+
+        //print main menu and return response
+        System.out.println("*****Burg Main Menu");
+        System.out.println("1. Take Order");
+        System.out.println("2. Print Order");
+        System.out.println("3. Exit");
+        return myScanner.nextLine();
+
+    }
 
 
+    public void printMessage(String message){
+        System.out.println(message);
+    }
+    public void printOrder(Order order) {
+//        int row = 1;
+//        for( Burger b: burgers) {
+//            System.out.println( row + ". " + b.getBunType() + " " + b.getHowCooked());
+//            System.out.println("Ingredients:");
+//            for (Ingredient i : b.getToppings()) {
+//                System.out.println(i.getIngredientName());
+//            }
+//            row++;
+//        }
+    }
     public Order takeOrder() {
 
         Order newOrder = new Order();

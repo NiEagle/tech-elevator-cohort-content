@@ -13,17 +13,7 @@ public class Order {
         burgers.add(newBurgerToAdd);
     }
 
-    public void printOrder() {
-        int row = 1;
-        for( Burger b: burgers) {
-            System.out.println( row + ". " + b.getBunType() + " " + b.getHowCooked());
-            System.out.println("Ingredients:");
-            for (Ingredient i : b.getToppings()) {
-                System.out.println(i.getIngredientName());
-            }
-            row++;
-        }
+    public List<Burger> getBurgers() {
+        return burgers;
     }
-
-
 }

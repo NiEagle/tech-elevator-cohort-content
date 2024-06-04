@@ -19,22 +19,84 @@ public class CigarPartyTest {
         sut = new CigarParty();
 
     }
-    //TESTING WEEKEND IS TRUE
+//isWEEKEND IS TRUE
+   //TESTING CIGARS WITHIN RANGE
     @Test
-    public void testHavePartyMaxRangeWeekend() {
+    public void should_return_true_when_passed_maximum_range_of_60_and_isWeekend_is_true() {
 
         Assert.assertEquals(true, sut.haveParty(60,true));
 
     }
     @Test
-    public void testHavePartyMinRangeWeekend() {
+    public void should_return_true_when_passed_minimum_range_of_40_and_isWeekend_is_true() {
 
         Assert.assertEquals(true, sut.haveParty(40,true));
 
     }
-    
+    @Test
+    public void should_return_true_when_passed_45_and_isWeekend_is_true() {
 
+        Assert.assertEquals(true, sut.haveParty(45,true));
 
+    }
+    //TESTING CIGARS IS OUT OF RANGE WEEKEND IS TRUE EXPECT FALSE
+    @Test
+   //TEST CIGARS OUT OF RANGE
+    public void should_return_false_when_passed_0_and_isWeekend_is_true() {
+
+        Assert.assertEquals(false, sut.haveParty(0,true));
+    }
+    @Test
+    public void should_return_false_when_passed_1_and_isWeekend_is_true() {
+
+        Assert.assertEquals(false, sut.haveParty(1,true));
+
+    }
+    @Test
+    public void should_return_true_when_passed_999_and_isWeekend_is_true() {
+
+        Assert.assertEquals(true, sut.haveParty(999,true));
+
+    }
+//isWeekend IS FALSE
+    //TESTING CIGARS WITHIN RANGE
+    @Test
+    public void should_return_true_when_passed_maximum_range_of_60_and_isWeekend_is_false() {
+
+    Assert.assertEquals(true, sut.haveParty(60,false));
+
+}
+    @Test
+    public void should_return_true_when_passed_minimum_range_of_40_and_isWeekend_is_false() {
+
+        Assert.assertEquals(true, sut.haveParty(40,false));
+
+    }
+    @Test
+    public void should_return_true_when_passed_45_and_isWeekend_is_false() {
+
+        Assert.assertEquals(true, sut.haveParty(45,false));
+
+    }
+    //TESTING CIGARS IS OUT OF RANGE WEEKEND IS TRUE EXPECT FALSE
+    @Test
+    //TEST CIGARS OUT OF RANGE
+    public void should_return_false_when_passed_0_and_isWeekend_is_false() {
+
+        Assert.assertEquals(false, sut.haveParty(0,false));
+    }
+    @Test
+    public void should_return_false_when_passed_1_and_isWeekend_is_false() {
+
+        Assert.assertEquals(false, sut.haveParty(1,false));
+
+    }
+    @Test
+    public void should_return_false_when_passed_999_and_isWeekend_is_false() {
+
+        Assert.assertEquals(false, sut.haveParty(999,false));
+
+    }
 
 
 }
