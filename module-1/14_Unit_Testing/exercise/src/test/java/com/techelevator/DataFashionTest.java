@@ -23,6 +23,8 @@ public class DataFashionTest {
         sut = new DateFashion();
 
     }
+
+
     //TESTING WHEN 2 IS EXPECTED
     @Test
     public void should_return_2_when_passed_10_and_of_10(){

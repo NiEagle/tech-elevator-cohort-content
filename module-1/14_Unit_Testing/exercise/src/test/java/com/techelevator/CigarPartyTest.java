@@ -19,7 +19,7 @@ public class CigarPartyTest {
         sut = new CigarParty();
 
     }
-//isWEEKEND IS TRUE
+//WHEN isWEEKEND IS TRUE
    //TESTING CIGARS WITHIN RANGE
     @Test
     public void should_return_true_when_passed_maximum_range_of_60_and_isWeekend_is_true() {
@@ -58,6 +58,10 @@ public class CigarPartyTest {
         Assert.assertEquals(true, sut.haveParty(999,true));
 
     }
+
+
+
+
 //isWeekend IS FALSE
     //TESTING CIGARS WITHIN RANGE
     @Test
@@ -78,7 +82,10 @@ public class CigarPartyTest {
         Assert.assertEquals(true, sut.haveParty(45,false));
 
     }
-    //TESTING CIGARS IS OUT OF RANGE WEEKEND IS TRUE EXPECT FALSE
+
+
+
+    //TESTING CIGARS IS OUT OF RANGE
     @Test
     //TEST CIGARS OUT OF RANGE
     public void should_return_false_when_passed_0_and_isWeekend_is_false() {
