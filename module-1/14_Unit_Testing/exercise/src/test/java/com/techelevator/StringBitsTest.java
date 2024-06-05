@@ -31,6 +31,7 @@ public class StringBitsTest {
     @Test
     public void should_aaaaaa_true_when_passed_a_string_aaaaaaaaaa() {
 
+
         Assert.assertEquals("aaaaaa", sut.getBits("aaaaaaaaaaa"));
 
     }

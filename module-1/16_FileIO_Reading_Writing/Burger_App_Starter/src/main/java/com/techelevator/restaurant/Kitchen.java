@@ -4,6 +4,14 @@ import java.util.List;
 
 public class Kitchen {
 
+    private Pantry pantry;
+
+    public Kitchen(){
+        pantry
+
+
+    }
+
 
     public boolean cook(Order order) throws IngredientOutOfStockException{
 
