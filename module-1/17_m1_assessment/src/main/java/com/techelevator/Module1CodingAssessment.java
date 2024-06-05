@@ -10,9 +10,9 @@ public class Module1CodingAssessment {
 		mca.run();
 		List<MovieRental> moviesToRent = new ArrayList<>();
 
-		MovieRental theThing = new MovieRental("The_THING","DVD",true);
-		MovieRental theOtherThing = new MovieRental("The_OTHER_THING","Blue-Ray",false);
-		MovieRental theReturnOfTheThing = new MovieRental("The_Return_Of_The_THING","Digital",false);
+		MovieRental theThing = new MovieRental("The_THING","VHS",true);
+		MovieRental theOtherThing = new MovieRental("The_OTHER_THING","Blu-ray",false);
+		MovieRental theReturnOfTheThing = new MovieRental("The_Return_Of_The_THING","DVD",false);
 
 		moviesToRent.add(theThing);
 		moviesToRent.add(theOtherThing);

@@ -13,9 +13,57 @@ rental price: indicates the rental price (VHS $0.99, DVD $1.99, BluRay $2.99). P
     private boolean isMoviePremium;
     private double priceOfMovie;
 //CONSTRUCTOR
-    public MovieRental(String titleOfMovie,String formatOfMovie, boolean isMoviePremium){
-
-
+    public MovieRental(String titleOfMovie,String formatOfMovie, boolean isMoviePremium) {
+    this.titleOfMovie = titleOfMovie;
+    this.formatOfMovie = formatOfMovie;
+    this.isMoviePremium = isMoviePremium;
 
     }
-}
+
+
+//METHOD
+        public String toString(){
+
+           return "MOVIE: {" + getTitleOfMovie() + "} - FORMAT: {" + getFormatOfMovie() + "} PRICE: {" + getPriceOfMovie() + "}";
+
+        }
+
+    public String getTitleOfMovie() {
+        return titleOfMovie;
+    }
+
+    public String getFormatOfMovie() {
+        return formatOfMovie;
+    }
+
+    public boolean isMoviePremium() {
+        return isMoviePremium;
+    }
+
+    public double getPriceOfMovie() {
+        double premiumFee = 1.00;
+        if (isMoviePremium) {
+
+
+            if (formatOfMovie == "VHS") {
+                return 0.99 + premiumFee ;
+            } else if (formatOfMovie == "DVD") {
+               return  1.99 + premiumFee;
+            } else if (formatOfMovie == "Blu-ray") {
+                return 2.99 + premiumFee;
+            }
+
+        }
+        if (formatOfMovie == "VHS") {
+            return 0.99;
+        } else if (formatOfMovie == "DVD") {
+            return 1.99;
+        } else if (formatOfMovie == "Blu-ray") {
+            return 2.99;
+        }
+    return priceOfMovie;
+    }
+    }
+
+
+
