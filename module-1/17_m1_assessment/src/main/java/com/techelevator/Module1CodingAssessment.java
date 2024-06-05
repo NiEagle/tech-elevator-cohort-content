@@ -23,18 +23,23 @@ public class Module1CodingAssessment {
 		moviesToRent.add(theOtherThing);
 		moviesToRent.add(theReturnOfTheThing);
 
+		printMovieList();
 
 		/*
 		Back in the Module1CodingAssessment class, create a private method called printMovieList that takes an ArrayList from the previous step and prints out each movie and it's data. (Hint: can you call toString()). Note: You should be 'passing' the ArrayList into this private method from the run() method. Do not write this code in the run() method.
 		 */
-		private void printMovieList(run(moviesToRent)) {
-		for (MovieRental m : moviesToRent) {
-			System.out.println(m.toString());
+
 		}
+
 		}
            //start coding here... You will call other class or classes from here as needed, or write additional methods.
 
 
-	}
 
+	private void  printMovieList(List<MovieRental> moviesToRent) {
+	for (MovieRental m : moviesToRent) {
+		System.out.println(m.toString());
+	}
+}
+}
 }
