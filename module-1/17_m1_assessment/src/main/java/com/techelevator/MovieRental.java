@@ -12,5 +12,10 @@ rental price: indicates the rental price (VHS $0.99, DVD $1.99, BluRay $2.99). P
     private String formatOfMovie;
     private boolean isMoviePremium;
     private double priceOfMovie;
+//CONSTRUCTOR
+    public MovieRental(String titleOfMovie,String formatOfMovie, boolean isMoviePremium){
 
+
+
+    }
 }
