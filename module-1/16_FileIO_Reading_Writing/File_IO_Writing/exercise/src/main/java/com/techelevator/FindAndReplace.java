@@ -1,8 +1,8 @@
 package com.techelevator;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class FindAndReplace {
@@ -65,8 +65,28 @@ public class FindAndReplace {
      * @param replacementTerm the term to replace where searchTerm is found
      * @throws IOException thrown if file could not be read, written, or other related error
      */
-    public void writeReplacedTextFile(File sourceFile, File destinationFile, String searchTerm, String replacementTerm) throws IOException {
+    public void writeReplacedTextFile(File sourceFile, File destinationFile, String searchTerm, String replacementTerm) throws FileNotFoundException {
+        File sourceFileObject;
+        File destinationFileObject;
 
+        try (
+                Scanner scanSourceFile = new Scanner(sourceFile);
+                PrintWriter writeDestinationFile = new PrintWriter(new FileOutputStream(destinationFile.getPath()));
+
+        ) {
+            while(scanSourceFile.hasNextLine()) {
+               String inputFromFile = scanSourceFile.nextLine();
+               writeDestinationFile.println(inputFromFile.replace(searchTerm,replacementTerm));
+
+            }
+            writeDestinationFile.flush();
+//                String lineOfInput = dataInput.nextLine();
+//                dataOutput.println(lineOfInput.replace("mobile", "cellphone"));
+        } catch (IOError e) {
+            throw new FileNotFoundException();
+        }
+
+//
     }
 
     /**
