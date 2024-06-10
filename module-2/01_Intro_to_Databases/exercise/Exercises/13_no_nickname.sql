@@ -2,3 +2,7 @@
 -- Order the results by state name alphabetically.
 -- (5 rows)
 
+SELECT state_name, state_abbreviation, population
+FROM state
+WHERE state_nickname ISNULL
+ORDER BY state_name;

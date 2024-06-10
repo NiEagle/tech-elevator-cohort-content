@@ -2,3 +2,7 @@
 -- Order the results by date established, oldest first.
 -- (5 rows)
 
+SELECT park_name, date_established, area
+From park
+WHERE park_name LIKE '%Canyon%'
+ORDER BY date_established ASC
