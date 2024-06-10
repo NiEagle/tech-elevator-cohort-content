@@ -2,3 +2,7 @@
 -- Order the results by area, largest first.
 -- (3 rows)
 
+SELECT state_name, area,population
+FROM state
+WHERE census_region ISNULL AND area < 5000
+ORDER BY area DESC
