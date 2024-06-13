@@ -3,3 +3,8 @@
 -- Order the results from lowest to highest average population.
 -- (4 rows)
 
+SELECT census_region, avg(population) AS average_population, min(population) AS min_population, max(population) AS max_population
+FROM state
+WHERE census_region IS NOT null
+GROUP BY census_region
+ORDER BY average_population ASC
