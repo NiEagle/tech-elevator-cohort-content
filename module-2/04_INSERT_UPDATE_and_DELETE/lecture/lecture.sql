@@ -8,7 +8,11 @@
 
 -- Since Disneyland is in California (CA), add a record representing that to the park_state table.
 
+INSERT INTO park_state (park_id, state_abbreviation)
+VALUES ((SELECT park_id FROM park WHERE park_name = 'Disneyland'), 'CA')
 
+INSERT INTO parke_state (park_idm state_abbreviaiton)
+SELECT FROM WHERE
 
 -- UPDATE
 
@@ -16,14 +20,20 @@
 
 
 -- Increase the population of California by 1,000,000.
+SELECT * FROM state
+WHERE state_abbreviation = 'CA'
 
+UPDATE state
+SET populationn = population + 1000000
 
 -- Change the capital of California to Anaheim.
 
+SELECT * FROM city WHERE cit_id = 264
 
 -- Change California's nickname back to "The Golden State", reduce the population by 1,000,000, and change the capital back to Sacramento.
 
-
+UPDATE state
+SET capital = (SELECT city_)
 
 -- DELETE
 
