@@ -7,10 +7,9 @@
 
 
 
-START TRANSACTION;
-INSERT into genre(genre_name) VALUES ('Sports');
-SELECT genre_id AS genre FROM genre WHERE genre_name = 'Sports';
+
+INSERT INTO genre (genre_id, genre_name) VALUES (2,'Sports');
+INSERT INTO movie_genre(movie_id,genre_id) VALUES (7214,2);
 
 
 
-INSERT into movie_genre(movie_id,genre_id) VALUES (7214,genre);
