@@ -94,12 +94,15 @@ public class JdbcParkDao implements ParkDao {
 
     @Override
     public Park createPark(Park park) {
-        throw new DaoException("createPark() not implemented");
+        string sql=
+
+
     }
 
     @Override
     public Park updatePark(Park park) {
-        throw new DaoException("updatePark() not implemented");
+        string sql = "UPDATE park set =thi s";
+        
     }
 
     @Override
