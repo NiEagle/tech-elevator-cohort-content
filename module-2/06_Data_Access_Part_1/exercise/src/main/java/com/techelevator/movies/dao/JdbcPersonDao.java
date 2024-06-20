@@ -71,7 +71,7 @@ public class JdbcPersonDao implements PersonDao {
     public List<Person> getPersonsByCollectionName(String collectionName, boolean useWildCard) {
         List<Person> persons = new ArrayList<>();
 
-        String sql = "SELECT DISTINCT cd FROM collection " +
+        String sql = "SELECT DISTINCT * FROM collection " +
                 "JOIN movie ON collection.collection_id = movie.collection_id " +
                 "JOIN movie_actor on movie.movie_id = movie_actor.movie_id " +
                 "JOIN person on actor_id = person_id " +
