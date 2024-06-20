@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import javax.sql.DataSource;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,6 +87,11 @@ public class JdbcMovieDao implements MovieDao {
     }
     private Movie mapRowToMovie(SqlRowSet rowSet) {
         Movie movie = new Movie();
+
+        if (rowSet.getDate("release_date") != null) {
+            movie.setReleaseDate(rowSet.getDate("release_date").toLocalDate());
+        }
+
         movie.setId(rowSet.getInt("movie_id"));
         movie.setTitle(rowSet.getString("title"));
         movie.setTagline(rowSet.getString("tagline"));
@@ -95,7 +101,7 @@ public class JdbcMovieDao implements MovieDao {
         movie.setLengthMinutes(rowSet.getInt("length_minutes"));
         movie.setHomePage(rowSet.getString("home_page"));
         movie.setPosterPath(rowSet.getString("poster_path"));
-        movie.setReleaseDate(rowSet.getDate("release_date").toLocalDate());
+
 
 
         return movie;
