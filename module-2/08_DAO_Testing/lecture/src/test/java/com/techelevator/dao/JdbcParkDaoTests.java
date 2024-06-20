@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class JdbcParkDaoTests extends BaseDaoTests {
 
@@ -25,17 +26,21 @@ public class JdbcParkDaoTests extends BaseDaoTests {
 
     @Test
     public void getParkById_with_valid_id_returns_correct_park() {
-        Assert.fail();
+        Park park = sut.getParkById(1);
+        assertParksMatch(park, PARK_1);
+
     }
 
     @Test
     public void getParkById_with_invalid_id_returns_null_park() {
-        Assert.fail();
+        Park park = sut.getParkById(99);
+        Assert.assertNull(park);
+
     }
 
     @Test
     public void getParksByState_with_valid_state_returns_correct_parks() {
-        Assert.fail();
+            List<Park> parks = sut.getParksByState();
     }
 
     @Test
@@ -45,7 +50,8 @@ public class JdbcParkDaoTests extends BaseDaoTests {
 
     @Test
     public void createPark_creates_park() {
-        Assert.fail();
+       testPark = new Park(0,"Test Park", LocalDate.now(), 900, true);
+
     }
 
     @Test
