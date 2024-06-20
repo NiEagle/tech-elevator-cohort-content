@@ -71,11 +71,11 @@ public class JdbcPersonDao implements PersonDao {
     public List<Person> getPersonsByCollectionName(String collectionName, boolean useWildCard) {
         List<Person> persons = new ArrayList<>();
 
-        String sql = "SELECT DISTINCT * FROM collection " +
+        String sql = "SELECT DISTINCT cd FROM collection " +
                 "JOIN movie ON collection.collection_id = movie.collection_id " +
                 "JOIN movie_actor on movie.movie_id = movie_actor.movie_id " +
                 "JOIN person on actor_id = person_id " +
-                "WHERE collection_name ILIKE ?) ";
+                "WHERE collection_name ilike ? ";
 
         if (useWildCard)
         {
@@ -89,21 +89,22 @@ public class JdbcPersonDao implements PersonDao {
 
         return persons;
 
-
+        //SELECT * FROM collection
+        //JOIN movie ON collection.collection_id = movie.collection_id
+        //JOIN movie_actor on movie.movie_id = movie_actor.movie_id
+        //JOIN person on actor_id = person_id
+        //WHERE collection_name ilike ('%kingsman%')
     }
     private Person mapRowToPerson(SqlRowSet rowSet) {
         Person person = new Person();
-        LocalDate bDay = null;
-        LocalDate dDay = null;
+
         if (rowSet.getDate("birthday") != null) {
-          bDay = rowSet.getDate("birthday").toLocalDate();
+          person.setBirthday(rowSet.getDate("birthday").toLocalDate());
         }
         if (rowSet.getDate("deathday") != null) {
-            dDay = rowSet.getDate("deathday").toLocalDate();
+            person.setDeathDate(rowSet.getDate("deathday").toLocalDate());
         }
 
-        person.setBirthday(bDay);
-        person.setDeathDate(dDay);
 
 
 
