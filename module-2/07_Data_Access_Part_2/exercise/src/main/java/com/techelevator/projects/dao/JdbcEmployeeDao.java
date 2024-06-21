@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import com.techelevator.projects.model.Department;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -133,16 +134,28 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
 	@Override
 	public Employee createEmployee(Employee employee) {
-		throw new DaoException("createEmployee() not implemented");
+
+			try{
+				String sql = "INSERT INTO employee (first_name, last_name, birth_date, hire_date,  department_id)" +
+						"VALUES (?,?,?,?,?) RETURNING employee_id;";
+				int employeetId = jdbcTemplate.queryForObject(sql, int.class, employee.getFirstName(), employee.getLastName(),employee.getBirthDate(),employee.getHireDate(),employee.getDepartmentId());
+
+				return getEmployeeById(employeetId);
+			} catch (DataIntegrityViolationException e) {
+				throw new DaoException("Error creating department", e);
+			} catch (CannotGetJdbcConnectionException e) {
+				throw new DaoException("Unable to connect to server or database", e);
+			}
+
 	}
 	
 	@Override
 	public Employee updateEmployee(Employee employee) {
-
+		try{
 			String sql = "UPDATE employee " +
-			"SET first_name=?, last_name=?, birth_date=?, hire_date =?,  department_id=? " +
-					"WHERE employee_id=?;";
-			try{
+			"SET first_name=?, last_name=?, birth_date=?, hire_date = ?,  department_id = ? " +
+					"WHERE employee_id= ? ;";
+
 			jdbcTemplate.update(sql, employee.getFirstName(),employee.getLastName(),employee.getBirthDate(),employee.getHireDate(),employee.getDepartmentId(),employee.getId());
 
 		}catch (DataIntegrityViolationException e){
@@ -153,7 +166,16 @@ public class JdbcEmployeeDao implements EmployeeDao {
 		}
 		return getEmployeeById(employee.getId());
 	}
-
+//	public Customer updateCustomer(Customer customer) {
+//		String sql = "UPDATE customer " +
+//				"SET first_name=?, last_name=?, street_address=?, city=?, phone_number=?, email_address=?, email_offers=? " +
+//				"WHERE customer_id=?;";
+//
+//		jdbcTemplate.update(sql, customer.getFirstName(), customer.getLastName(), customer.getStreetAddress(), customer.getCity(),
+//				customer.getPhoneNumber(), customer.getEmailAddress(), customer.getEmailOffers(), customer.getCustomerId());
+//
+//		return getCustomerById(customer.getCustomerId());
+//	}
 
 	@Override
 	public int deleteEmployeeById(int id) {
