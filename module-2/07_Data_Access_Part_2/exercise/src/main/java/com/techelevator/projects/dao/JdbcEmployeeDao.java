@@ -179,7 +179,21 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
 	@Override
 	public int deleteEmployeeById(int id) {
-		throw new DaoException("deleteEmployeeById() not implemented");
+		int numberOfPeople = 0;
+		String sql = "DELETE FROM employee WHERE employee_id=?;";
+		String projectEmployeeSql = "DELETE FROM project_employee WHERE employee_id=?;";
+
+		try{		;
+			jdbcTemplate.update(projectEmployeeSql,id );
+			numberOfPeople = jdbcTemplate.update(sql,id );
+
+		} catch (CannotGetJdbcConnectionException e) {
+			throw new DaoException("Unable to connect to server or database", e);
+		} catch (DataIntegrityViolationException e) {
+			throw new DaoException("Data integrity violation", e);
+		}
+
+		return numberOfPeople;
 	}
 
 	@Override

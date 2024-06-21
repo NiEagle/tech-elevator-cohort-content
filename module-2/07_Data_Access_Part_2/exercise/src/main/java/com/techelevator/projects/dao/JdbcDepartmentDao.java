@@ -106,7 +106,8 @@ public class JdbcDepartmentDao implements DepartmentDao {
 	public int deleteDepartmentById(int id) {
 		int numberOfRows = 0;
 		String updateEmployeeSql = "UPDATE employee SET department_id = 0 WHERE department_id = ?";
-		String deleteDepartmentSql = "DELETE FROM department WHERE department_id=?;";
+		String deleteDepartmentSql = "DELETE " +
+				" FROM department WHERE department_id=?;";
 
 		try{		;
 			jdbcTemplate.update(updateEmployeeSql,id );
