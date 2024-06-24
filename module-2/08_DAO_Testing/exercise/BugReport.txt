@@ -2,23 +2,38 @@ Bug 1
 -----
 Test that demonstrates problem:
 
+getTimesheetsByEmployeeId_with_valid_employee_id_returns_list_of_timesheets_for_employee()
+
 Expected output:
+
+getTimesheetsByEmployeeId(1) returns a list size of 2
 
 Actual output:
 
+getTimesheetsByEmployeeId(1) returns a list size of 1
+
 How did you fix this bug?
 
+I replaced the if in getTimesheetsByEmployeeId() with a while so it can loop.
 
 Bug 2
 -----
 Test that demonstrates problem:
 
+getTimesheetsByProjectId_with_valid_project_id_returns_list_of_all_timesheets_for_project()
+
 Expected output:
+
+getTimesheetsByProjectId(1) returns a list size of 3
 
 Actual output:
 
+getTimesheetsByProjectId(1) returns a list size of 2
+
 How did you fix this bug?
 
+There was a error in the sql statement in getTimesheetsByProjectId() replaced employee_id in statement with project
+_id
 
 Bug 3
 -----
