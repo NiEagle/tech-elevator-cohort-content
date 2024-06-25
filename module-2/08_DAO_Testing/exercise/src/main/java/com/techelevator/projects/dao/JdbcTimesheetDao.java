@@ -35,6 +35,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         } catch (DataIntegrityViolationException e) {
             throw new DaoException("Data integrity violation", e);
         }
+
         return timesheet;
     }
 
@@ -149,6 +150,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         } catch (DataIntegrityViolationException e) {
             throw new DaoException("Data integrity violation", e);
         }
+
         return billableHours;
     }
 
