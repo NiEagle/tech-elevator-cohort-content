@@ -10,12 +10,14 @@ public class HotelService {
     private static final String API_BASE_URL = "http://localhost:3000";
     private final RestTemplate restTemplate = new RestTemplate();
 
+
     public Hotel[] listHotels() {
-        return null;
+       return restTemplate.getForObject(API_BASE_URL +  "/hotels", Hotel[].class);
+
     }
 
     public Review[] listReviews() {
-        return null;
+        return restTemplate.getForObject(API_BASE_URL +  "/hotels", Hotel[].class);
     }
 
     public Hotel getHotelById(int id) {
