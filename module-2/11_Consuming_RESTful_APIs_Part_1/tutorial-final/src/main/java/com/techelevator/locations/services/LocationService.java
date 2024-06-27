@@ -13,7 +13,7 @@ public class LocationService {
     }
 
     public Location getOne(int id) {
-        return restTemplate.getForObject(API_BASE_URL + "/" + id, Location.class);
+        return restTemplate.getForObject(API_BASE_URL + "?currentBid_lte=100" + id, Location.class);
     }
 
 }
