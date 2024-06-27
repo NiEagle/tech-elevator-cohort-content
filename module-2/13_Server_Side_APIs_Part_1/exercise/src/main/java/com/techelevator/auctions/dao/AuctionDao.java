@@ -2,6 +2,7 @@ package com.techelevator.auctions.dao;
 
 import com.techelevator.auctions.model.Auction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface AuctionDao {
