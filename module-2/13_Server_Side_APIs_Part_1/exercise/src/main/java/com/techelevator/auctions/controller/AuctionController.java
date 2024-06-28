@@ -20,14 +20,19 @@ public class AuctionController {
     private List<Auction> auctions = new ArrayList<>();
 
     @RequestMapping(path = "/auctions" , method = RequestMethod.GET)
-    public List<Auction> list(@RequestParam(required=false) String title_like,@RequestParam(required=false) Double currentBid_lte) {
-        if (title_like != null) {
-            return auctionDao.getAuctionsByTitle(title_like);
+    public List<Auction> list(@RequestParam(required=false,defaultValue = "") String title_like,@RequestParam(required=false,defaultValue = "0") Double currentBid_lte) {
+        if (currentBid_lte != 0 && title_like != "") {
+            return auctionDao.getAuctionsByTitleAndMaxBid(title_like,currentBid_lte);
         }
-        if (currentBid_lte != null && currentBid_lte < 0) {
+        else if (currentBid_lte != 0) {
             return auctionDao.getAuctionsByMaxBid(currentBid_lte);
         }
-        return auctionDao.getAuctions();
+        else if (title_like != "") {
+            return auctionDao.getAuctionsByTitle(title_like);
+        }
+         else{
+            return auctionDao.getAuctions();
+        }
     }
 
     @RequestMapping(path = "/auctions/{id}", method = RequestMethod.GET)
