@@ -48,6 +48,7 @@ public class AuctionController {
         }
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "", method = RequestMethod.POST)
     public Auction create(@RequestBody Auction auction) {
         return auctionDao.createAuction(auction);
