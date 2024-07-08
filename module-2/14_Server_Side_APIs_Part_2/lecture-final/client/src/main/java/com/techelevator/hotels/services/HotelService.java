@@ -112,7 +112,7 @@ public class HotelService {
     public Reservation getReservation(int reservationId) {
         Reservation reservation = null;
         try {
-            reservation = restTemplate.getForObject(API_BASE_URL + "reservations/" + reservationId, Reservation.class);
+            reservation = restTemplate.getForObject(API_BASE_URL + reservationId, Reservation.class);
         } catch (RestClientResponseException | ResourceAccessException e) {
             BasicLogger.log(e.getMessage());
         }
