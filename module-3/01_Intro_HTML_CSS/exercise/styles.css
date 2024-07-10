@@ -1,0 +1,25 @@
+
+#headerText{
+  color: rgb(121, 172, 141);
+  text-align: center;
+}
+body{
+background-color: rgb(235, 202, 253);
+}
+#img1{
+  align-items: center;
+  width: 350px;
+}
+h1 {
+  color: green;
+}
+.bodyText{
+  color:rgb(97, 48, 112)
+}
+.underline{
+  text-decoration: underline;
+}
+.quote{
+  font-style: italic;
+}
+
