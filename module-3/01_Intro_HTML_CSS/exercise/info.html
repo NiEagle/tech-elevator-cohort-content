@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesforinfo.css">
+    <title>About you</title>
 </head>
 <body>
-    
+    <form action="https://www.oihfso.com" method="post">
+        <label for="name">Name</label>
+        <input id="name" name="name" type = "text" required/>
+        <br />
+        <br />
+        <label for="email">Email:</label>
+        <input id="email" name="email" type = "email" required />
+        <br />
+        <br />
+        <label for="date-of-birth">Date of birth:</label>
+        <input id="date-of-birth" name = "date-of-birth" type="date" />
+        <br />
+        <br />
+        <label for="favorite-color">Favorite color:</label>
+        <input id="favorite-color" name = "favorite-color" type=color />
+        <br />
+        <br />
+        <label for="lucky-number">Lucky number:</label>
+        <input id="lucky-number" name = "lucky-number" type="number" />
+        <br />
+        <br />
+        <label for="confirmation">Confirmation</label>
+        <input id="confirmation" name="confirmation" type="checkbox" />
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+
+    </form>
 </body>
 </html>
