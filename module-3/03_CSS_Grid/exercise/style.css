@@ -4,13 +4,13 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 70spx;
 }
 
 body {
     display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
     margin-left: 7%;
     margin-right: 7%;
     background-color: rgba(192, 192, 192, 0.1);
@@ -26,6 +26,7 @@ h1#headline {
     margin-bottom: 0.15em;
     color: #505355;
     border-bottom: solid 1px black;
+    grid-area: theHeadline;
 }
 
 h2 {
@@ -40,6 +41,8 @@ h3 {
 
 header img {
     height: 25px;
+    grid-area: headerImage;
+    
 }
 
 .student-gray {
@@ -50,6 +53,63 @@ header img {
     font-style: italic;
 }
 
+#main-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "theHeadline theHeadline headerImage"
+        "sQuote sQuote headerImage"
+        "sProfile sProfile sContact"
+        "exGrid exGrid exGrid"
+        
+    ;
+   height: 100vh;
+
+    row-gap: 20px;
+    column-gap: 50px;
+}
+#student-quote{
+    grid-area: sQuote;
+}
+#student-profile
+{
+    grid-area: sProfile;
+}
+#student-contact
+{
+    grid-area: sContact;
+}
+#experience-grid
+{
+
+    grid-area: exGrid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "exCode exCode"
+        "exDatabase exDatabase"
+        "exWeb exDesign"
+       
+    ;
+  
+}
+#experience-code{
+     grid-area: ecCode;
+}
+
+#experience-database
+{
+    grid-area: exDatabase;
+}
+#experience-web
+{
+    grid-area: exWeb;
+}
+#experience-design{
+    grid-area: exDesign;
+}
+
 #student-picture img{
     border-radius: 50%;
+    grid-area: studentPicture;
 }

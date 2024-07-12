@@ -19,9 +19,9 @@ footer {
 
 /***define layout ***/
 
-.container{
+#main-grid{
 display:grid;
-grid-template-columns: 0.5fr 1fr 3fr 1fr 0.5fr;
+grid-template-columns: 1fr 1fr 1fr;
 grid-template-areas:
     ". theHeader theHeader theHeader ."
     ". nav main events ."
@@ -29,6 +29,7 @@ grid-template-areas:
 
 ;
 grid-gap: 20px;
+column-gap: 50px;
 
 
 }
