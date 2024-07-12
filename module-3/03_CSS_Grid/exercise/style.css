@@ -8,6 +8,9 @@ html {
 }
 
 body {
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
     margin-left: 7%;
     margin-right: 7%;
     background-color: rgba(192, 192, 192, 0.1);
