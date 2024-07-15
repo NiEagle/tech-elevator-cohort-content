@@ -1,3 +1,17 @@
+body,
+header,
+.logo,
+ul,
+li,
+#featured section article div,
+#all-items section,
+#all-items section article {
+display: flex;
+flex-basis: 100%;
+
+
+
+}
 body {
   margin: 20px;
   padding: 0
@@ -6,16 +20,25 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+  flex-basis: 100%;
+
 }
 
 .logo {
   width: 140px;
+  justify-content: left;
+  flex-basis: 50%;
+  flex-grow: 2;
+  
+  
 }
 
 ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  display: flex;
+  justify-content: center;
 }
 
 li {
@@ -25,15 +48,31 @@ li {
   color: #707070;
   padding: 0 20px 0 0;
   margin-left: 20px;
+  flex-grow: 1;
+
+  
+  
+  
 }
 
 a,
 a:visited {
   color: #707070;
   text-decoration: none;
+ 
+  
+  
 }
 
 a:hover {
   color: #00AFEF;
   text-decoration: underline;
+}
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 2;
+  
+
 }

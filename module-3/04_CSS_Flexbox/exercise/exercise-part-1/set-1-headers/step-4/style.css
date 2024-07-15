@@ -6,6 +6,8 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .logo {
@@ -16,6 +18,9 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 li {
@@ -37,4 +42,8 @@ a:hover {
   color: #00AFEF;
   text-decoration: underline;
 }
+nav {
+  flex-grow: auto;
+  flex-basis: 100%;
+} 
 
