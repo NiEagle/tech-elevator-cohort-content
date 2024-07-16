@@ -65,6 +65,22 @@ let makeNumber = (first, second = '') =>{
  * @param {...number} num a series of numbers to add together
  * @returns {number} the sum of all the parameters (or arguments)
  */
+let addAll = (...num) =>{
+    return number.reduce((sum, number) => {
+      
+      return sum + number;
+      });
+     
+  }
+
+
+
+//   function reduceArrayToFindProduct(arrayToMultiply) {
+//     return arrayToMultiply.reduce((product, element) => {
+//       return product * element;
+//     });
+//   }
+  
 
 /*
  * Write and document a function called makeHappy that takes
@@ -107,6 +123,13 @@ let makeNumber = (first, second = '') =>{
  * @param {number[]|string[]} searchArray the array to search
  * @returns {number|string} the number or string that is largest
  **/
+
+let findLargest = (searchArray) =>{
+
+
+
+    return parseInt(first + second);
+}
 
 
 /*

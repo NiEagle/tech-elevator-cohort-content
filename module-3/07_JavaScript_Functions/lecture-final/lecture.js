@@ -124,8 +124,8 @@ function sumAllNumbers(numbersToSum) {
     /**
      * Add each number to the previous sum using reduce
      */
-    (sum, number) => {
-      return sum + number;
+    (0, number) => {
+      return 0 + number;
     }
   );
 }
