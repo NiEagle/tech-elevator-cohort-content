@@ -30,3 +30,14 @@ return runningTotal += num;
 },0);
 
 console.log(sum);
+
+const newDaysOfWeek = daysOfTheWeek.map((day) =>{
+
+
+
+return "It is " + day + "day!";
+
+});
+
+console.log(newDaysOfWeek);
+

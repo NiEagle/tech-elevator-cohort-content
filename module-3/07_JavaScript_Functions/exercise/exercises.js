@@ -19,6 +19,12 @@
  * @param {boolean} [recommendation=false] does the student have a recommendation
  * @returns {boolean} true if they are admitted
  */
+let isAdmitted=  (gpa,satScore=0, recommendation = false) => {
+    if(gpa > 4.0 || satScore > 1300 || (gpa > 3.0 && recommendation == true)||(satScore > 1200 && recommendation == true )){
+    return true;
+}
+    return false;
+}
 
 /**
  * Write a function called useParameterToFilterArray that accepts a filter function
@@ -28,6 +34,10 @@
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+
+let useParameterToFilterArray = (func) => {
+    return unfilteredArray.filter(func);
+}
 
 /**
  * Write a function called makeNumber that takes two strings
@@ -41,6 +51,12 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
+let makeNumber = (first, second = '') =>{
+
+
+
+    return parseInt(first + second);
+}
 
 /**
  * Write a function called addAll that takes an unknown number of parameters
