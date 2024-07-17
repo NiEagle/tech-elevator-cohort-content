@@ -1,7 +1,7 @@
 // add pageTitle
 let pageTitle = 'My Shopping List';
 // add groceries
-let groceries = 0;
+let groceries = ["Apples","Eggs","Chicken","Bottled Water","Pickles","Plum","Cake","Kale","Oranges","Cabbage"];
 /**
  * This function will get a reference to the title and set its text to the value
  * of the pageTitle variable that was set above.
@@ -23,7 +23,7 @@ function displayGroceries() {
     li.textContent = groceries.task;
     ul.appendChild(li);
   });
-  shopping-list.appendChild(ul);
+  groceries.appendChild(ul);
 
 }
 
