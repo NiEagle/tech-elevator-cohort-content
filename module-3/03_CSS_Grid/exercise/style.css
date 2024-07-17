@@ -56,9 +56,10 @@ header img {
 #main-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
     grid-template-areas:
-        "theHeadline theHeadline headerImage"
-        "sQuote sQuote headerImage"
+        "theHeadline theHeadline studentPic"
+        "sQuote sQuote studentPic"
         "sProfile sProfile sContact"
         "exGrid exGrid exGrid"
         
@@ -77,24 +78,29 @@ header img {
 }
 #student-contact
 {
+    justify-items: center;
     grid-area: sContact;
+    
 }
 #experience-grid
 {
 
     grid-area: exGrid;
     display: grid;
+    row-gap: 20px;
+    column-gap: 50px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "exCode exCode"
         "exDatabase exDatabase"
         "exWeb exDesign"
+    
        
     ;
   
 }
 #experience-code{
-     grid-area: ecCode;
+     grid-area: exCode;
 }
 
 #experience-database
@@ -109,7 +115,9 @@ header img {
     grid-area: exDesign;
 }
 
-#student-picture img{
+#student-picture{
+    justify-items: center;
     border-radius: 50%;
-    grid-area: studentPicture;
+    grid-area: studentPic;
+   
 }
