@@ -26,15 +26,21 @@
 		hasTeen(20, 10, 13) → true
 		
 */
-function hasTeen(x,y,z) {
-	let isTrue = true;
+function hasTeen(x, y, z) {
+	
 
-	if ((13 < x && x<19) || (13<y && y<19) || (13<z && z<19)){
-		let isTrue = true;
-	}else{
-	return isTrue;
+	if ((13 <= x && x <= 19) || (13 <= y && y <= 19) || (13 <= z && z <= 19)){
+		return true;
+	} else {
+	return false;
 	}	
 }
+
+// if ((13 <= x && x < 19) || (13 <= y && y < 19) || (13 <= z && z < 19)){
+// 	isTrue = true;
+// }else{
+// return isTrue;
+// }	
 
 /* 
 3. **lastDigit** Given two non-negative int values, return true if they have the same 
@@ -48,7 +54,7 @@ function hasTeen(x,y,z) {
 function lastDigit(x,y){
 	if(x.lastDigit === y.lastDigit){
 	return true;
-}else if(x.lastDigit !== y.lastDigit){
+}else{
 return false;
 }
 }
@@ -80,15 +86,14 @@ return "";
 		oddOnly([2, 4, 8, 32, 256]); → []
 */
 function oddOnly(numArray){
-
-	for (let i=0; i< numArray.length; i++) {
-		if((numArray[i] % 2) == 0){
-			numArray = numArray.pop(i);
+newArray =  [];
+	for (let i=0; i < numArray.length; i++) {
+		
+		if((numArray[i] % 2) != 0){
+			newArray.push(numArray[i]);
 		}
 	}
-	console.log(1);
-return numArray	;
-
+	return newArray;
 
 }
 
@@ -100,6 +105,15 @@ return numArray	;
 		frontAgain("edit") → false
 		frontAgain("ed") → true
 */
+
+function frontAgain(x){
+	if((x.substring(0,2) == x.substring(x.length - 2)) || (x.length == 2)){
+	return true;
+}else{
+return false;
+}}
+
+
 
 /*
 7. **cigarParty** When squirrels get together for a party, they like to have cigars. 
@@ -117,7 +131,7 @@ function cigarParty(num, isWeekend){
 	if((40 <= num) && isWeekend){
 		return true;
 	}
-	else if(40 <= num <= 60){
+	else if((40 <= num) && (num <= 60)){
 		return true;
 
 	}
@@ -159,6 +173,17 @@ return num;
 	filterEvens([2, 4, 6]) → [2, 4, 6]
 	filterEvens([100, 8, 21, 24, 62, 9, 7]) → [100, 8, 24, 62]
 */
+function filterEvens(numArray){
+	newArray =  [];
+		for (let i=0; i < numArray.length; i++) {
+			
+			if((numArray[i] % 2) == 0){
+				newArray.push(numArray[i]);
+			}
+		}
+		return newArray;
+	
+	}
 
 /*
 10. **filterBigNumbers** Write a function that filters numbers greater than or equal to 100.
@@ -168,6 +193,18 @@ return num;
 	filterBigNumbers([]) → []
 */
 
+let filterBigNumbers = (array) =>{
+	arrayOfBig = [];
+	for(i = 0; i < array.length; i++){
+		if(array[i] >= 100){
+			arrayOfBig.push(array[i])
+		}
+
+
+	}
+	return arrayOfBig;
+}
+
 /*
 11. **filterMultiplesOfX** Write a function to filter numbers that are a multiple of a 
 parameter, `x` passed in.
@@ -175,6 +212,19 @@ parameter, `x` passed in.
 	filterMultiplesOfX([3, 5, 1, 9, 18, 21, 42, 67], 3) → [3, 9, 18, 21, 42]
 	filterMultiplesOfX([3, 5, 10, 20, 18, 21, 42, 67], 5) → [5, 10, 20]
 */
+
+let filterMultiplesOfX = (array, x) =>{
+	arrayOfMultiples = [];
+	for(i = 0; i < array.length; i++){
+		if((array[i] % x) == 0){
+			arrayOfMultiples.push(array[i])
+		}
+
+
+	}
+	return arrayOfMultiples;
+}
+
 
 /*
 12. **createObject** Write a function that creates an object with a property called 
@@ -188,3 +238,15 @@ firstName, lastName, and age. Populate the properties with your values.
 		age
 	}
 */
+let createObject = () =>{
+ const newObject = {
+	firstName: '',
+    lastName: '',
+    age: 0
+ }
+
+ return newObject;
+
+
+
+}
