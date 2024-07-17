@@ -23,6 +23,9 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+  flex-basis: auto;
+  
+
   
   
 }
@@ -75,3 +78,8 @@ a:hover {
   color: #00AFEF;
   text-decoration: underline;
 }
+.spacer{
+
+  flex-basis: auto;
+}
+
