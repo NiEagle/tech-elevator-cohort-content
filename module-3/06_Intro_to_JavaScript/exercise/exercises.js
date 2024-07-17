@@ -79,6 +79,18 @@ return "";
 		oddOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) → [1, 3, 5, 7, 9, 11];
 		oddOnly([2, 4, 8, 32, 256]); → []
 */
+function oddOnly(numArray){
+
+	for (let i=0; i< numArray.length; i++) {
+		if((numArray[i] % 2) == 0){
+			numArray = numArray.pop(i);
+		}
+	}
+	console.log(1);
+return numArray	;
+
+
+}
 
 /*
 6. **frontAgain** Given a string, return true if the first 2 chars in the string also appear 
@@ -101,6 +113,17 @@ or false otherwise.
 		cigarParty(70, true) → true
 */
 
+function cigarParty(num, isWeekend){
+	if((40 <= num) && isWeekend){
+		return true;
+	}
+	else if(40 <= num <= 60){
+		return true;
+
+	}
+	return false;
+}
+
 /*
 8. **fizzBuzz** Given a number, return a value according to the following rules:
 If the number is multiple of 3, return "Fizz."
@@ -114,6 +137,19 @@ In all other cases return the original number.
 	fizzBuzz(15) → "FizzBuzz"
 	fizzBuzz(8) → 8
 */
+function fizzBuzz(num){
+	if(((num % 5) == 0)&&((num % 3) == 0)){
+		return 'FizzBuzz';
+	}
+	if((num % 5) == 0){
+		return 'Buzz';
+	}
+	else if((num % 3) == 0){
+		return 'Fizz';
+	}
+return num;
+
+}
 
 /*
 9. **filterEvens** Write a function that filters an array to only include even numbers.
