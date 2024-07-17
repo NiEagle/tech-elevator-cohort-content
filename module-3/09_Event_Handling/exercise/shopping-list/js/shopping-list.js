@@ -41,6 +41,95 @@ function displayGroceries() {
 document.addEventListener('DOMContentLoaded', (event) =>{
   setPageTitle();
   displayGroceries();
+  
+  const groceries = document.querySelectorAll('li');
+  const markAll = document.querySelector('a');
+
+  groceries.forEach((item) => {
+    // when you click on a task mark it completed
+    item.addEventListener('click', () => {
+      if (!item.classList.contains('completed')) {
+        item.classList.add('completed');
+        item.querySelector('i').classList.add('completed');
+      }
+    });
+
+    // when you double click a task remove the completed class
+    item.addEventListener('dblclick', () => {
+      if (item.classList.contains('completed')) {
+        item.classList.remove('completed');
+        item.querySelector('i').classList.remove('completed');
+      }
+    });
+  });
+
+  groceries.forEach((item) => {
+    
+    markAll.addEventListener('click', (event) => {
+    
+      event.preventDefault();
+if(markAll.textContent.trim() ==='Mark All Complete'){
+
+      for(i=0;i < groceries.length; i++){
+        if (!item.classList.contains('completed')) {
+          item.classList.add('completed');
+          item.querySelector('i').classList.add('completed');
+         
+        }
+      }
+      markAll.setAttribute.textContent = 'Mark All Incomplete';
+
+  }
+  for(i=0;i < groceries.length; i++){
+    if (!item.classList.contains('completed')) {
+      item.classList.add('completed');
+      item.querySelector('i').classList.add('completed');
+    }
+  }
+  markAll.textContent="Mark All Complete";
+  
+} );
+
+})});
 
 
-});
+// document.addEventListener('DOMContentLoaded', (event) =>{
+//   setPageTitle();
+//   displayGroceries();
+  
+//   const groceries = document.querySelectorAll('li');
+//   const markAll = document.querySelector('#toggleAll');
+
+//   groceries.forEach((item) => {
+//     // when you click on a task mark it completed
+//     item.addEventListener('click', () => {
+//       if (!item.classList.contains('completed')) {
+//         item.classList.add('completed');
+//         item.querySelector('i').classList.add('completed');
+//       }
+//     });
+
+//     // when you double click a task remove the completed class
+//     item.addEventListener('dblclick', () => {
+//       if (item.classList.contains('completed')) {
+//         item.classList.remove('completed');
+//         item.querySelector('i').classList.remove('completed');
+//       }
+//     });
+//   });
+
+//   groceries.forEach((item) => {
+    
+//     markAll.addEventListener('click', (event) => {
+//       //trying
+//       event.preventDefault();
+//       for(i=0;i < groceries.length; i++){
+//         if (!item.classList.contains('completed')) {
+//           item.classList.add('completed');
+//           item.querySelector('i').classList.add('completed');
+//         }
+//       }
+
+//   });
+
+// })});
