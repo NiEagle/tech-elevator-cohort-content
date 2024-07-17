@@ -16,22 +16,46 @@ function setPageTitle() {
  * This function will loop over the array of groceries that was set above and add them to the DOM.
  */
 function displayGroceries() {
-
-  const ul = document.createElement('ul');
-  groceries.forEach((groceries) => {
-    const li = document.createElement('li');
-    li.textContent = groceries.task;
-    ul.appendChild(li);
+  
+  const list = document.getElementById("groceries");
+  
+  groceries.forEach((grocery) => {
+    const container = document.createElement("li");
+    const itemName = document.createElement('p');
+    
+    itemName.textContent = grocery;
+    
+    container.appendChild(itemName);
+    list.insertAdjacentElement("beforeend",container);
   });
-  groceries.appendChild(ul);
+  
+
+
 
 }
+
+
+
+
+
+
 
 /**
  * This function will be called when the button is clicked. You will need to get a reference
  * to every list item and add the class completed to each one
  */
-function markCompleted() {}
+function markCompleted() {
+
+  const itemList = document.querySelectorAll('li');
+    itemList.forEach((grocery) => {
+   
+
+  grocery.setAttribute('class','completed')
+ 
+})
+
+
+}
 
 setPageTitle();
 

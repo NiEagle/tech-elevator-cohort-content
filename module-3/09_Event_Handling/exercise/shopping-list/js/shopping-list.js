@@ -36,3 +36,11 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+
+document.addEventListener('DOMContentLoaded', (event) =>{
+  setPageTitle();
+  displayGroceries();
+
+
+});
