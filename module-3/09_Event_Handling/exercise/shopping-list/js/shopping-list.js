@@ -42,10 +42,11 @@ document.addEventListener('DOMContentLoaded', (event) =>{
   setPageTitle();
   displayGroceries();
   
-  const groceries = document.querySelectorAll('li');
+  const groceryItems = document.querySelectorAll('li');
   const markAll = document.querySelector('a');
+  const item = document.querySelector('i');
 
-  groceries.forEach((item) => {
+  groceryItems.forEach((item) => {
     // when you click on a task mark it completed
     item.addEventListener('click', () => {
       if (!item.classList.contains('completed')) {
@@ -63,34 +64,38 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     });
   });
 
-  groceries.forEach((item) => {
+
     
     markAll.addEventListener('click', (event) => {
     
       event.preventDefault();
-if(markAll.textContent.trim() ==='Mark All Complete'){
+      if(allItemsIncomplete){
 
-      for(i=0;i < groceries.length; i++){
-        if (!item.classList.contains('completed')) {
-          item.classList.add('completed');
-          item.querySelector('i').classList.add('completed');
+        groceryItems.forEach((item) => {
+        
+        item.classList.add('completed');
+        item.querySelector('i').classList.add('completed');
          
-        }
+        })
+      
+        markAll.textContent = 'Mark All Incomplete';
+        allItemsIncomplete = !allItemsIncomplete;  
       }
-      markAll.setAttribute.textContent = 'Mark All Incomplete';
+    else{
 
-  }
-  for(i=0;i < groceries.length; i++){
-    if (!item.classList.contains('completed')) {
-      item.classList.add('completed');
-      item.querySelector('i').classList.add('completed');
+      groceryItems.forEach((item) => {
+        
+        item.classList.remove('completed');
+        item.querySelector('i').classList.remove('completed');
+         
+        })
+      
+        markAll.textContent = 'Mark All Complete';
+        allItemsIncomplete = !allItemsIncomplete;
     }
   }
-  markAll.textContent="Mark All Complete";
-  
-} );
 
-})});
+)});
 
 
 // document.addEventListener('DOMContentLoaded', (event) =>{
@@ -132,4 +137,4 @@ if(markAll.textContent.trim() ==='Mark All Complete'){
 
 //   });
 
-// })});
+// })})
