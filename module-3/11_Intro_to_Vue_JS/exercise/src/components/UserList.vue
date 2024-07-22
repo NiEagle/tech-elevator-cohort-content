@@ -10,11 +10,11 @@
     </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><input type="text" id="firstNameFilter"/></td>
-        <td><input type="text" id="lastNameFilter"/></td>
-        <td><input type="text" id="usernameFilter"/></td>
-        <td><input type="text" id="emailFilter"/></td>
+      <tr >
+        <td><input type="text" id="firstNameFilter" v-model="search.firstName"/></td>
+        <td><input type="text" id="lastNameFilter" v-model="search.lastName"/></td>
+        <td><input type="text" id="usernameFilter" v-model="search.username"/></td>
+        <td><input type="text" id="emailFilter" v-model="search.emailFilter"/></td>
         <td>
           <select id="statusFilter">
             <option value="">Show All</option>
@@ -23,7 +23,18 @@
           </select>
         </td>
       </tr>
-      <!-- user listing goes here -->
+      <tr v-for="user in filteredList" v-bind:key="user.name"
+            v-bind:class="{ finished: user.done }
+            "> 
+        
+
+          <td> {{ user.firstName }}</td>
+          <td> {{ user.lastName }}</td>
+          <td> {{ user.username }}</td>
+          <td> {{ user.emailAddress }}</td>
+          <td> {{ user.status }}</td>
+        
+      </tr>
     </tbody>
   </table>
 </template>
@@ -40,9 +51,25 @@ export default {
         { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Inactive' }
       ]
+    
+      , 
+      search: 
+    {firstName: "",lastName: "",username: "", emailAddress: "", status: ""}
+    }
+  }
+    
+    
+  
+  , computed: {
+    filteredList() {
+      return this.users.filter((user) => {
+        return (user.firstName.toLowerCase().includes(this.search.firstName)) && (user.lastName.toLowerCase().includes(this.search.lastName))
+      
+      });
     }
   }
 }
+
 </script>
 
 <style scoped>
