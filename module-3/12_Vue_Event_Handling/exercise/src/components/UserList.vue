@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr v-on:submit.prevent="addNewReview" v-show="showForm === true">
           <td>
             <input type="checkbox" id="selectAll" />
           </td>
@@ -92,6 +92,7 @@
 export default {
   data() {
     return {
+      showForm: false,
       filter: {
         firstName: "",
         lastName: "",

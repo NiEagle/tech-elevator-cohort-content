@@ -6,40 +6,70 @@
 
     <div class="well-display">
       <div class="well">
-        <span class="amount">{{ averageRating }}</span>
+        <span class="amount" v-on:click="userFilterChoice = 0">{{ averageRating }}</span>
         Average Rating
       </div>
 
       <div class="well">
-        <span class="amount">{{ numberOfOneStarReviews }}</span>
+        <span class="amount" v-on:click="userFilterChoice = 1">{{ numberOfOneStarReviews }}</span>
         1 Star Review{{ numberOfOneStarReviews === 1 ? '' : 's' }}
       </div>
 
       <div class="well">
-        <span class="amount">{{ numberOfTwoStarReviews }}</span>
+        <span class="amount" v-on:click="userFilterChoice = 2">{{ numberOfTwoStarReviews }}</span>
         2 Star Review{{ numberOfTwoStarReviews === 1 ? '' : 's' }}
       </div>
 
       <div class="well">
-        <span class="amount">{{ numberOfThreeStarReviews }}</span>
+        <span class="amount" v-on:click="userFilterChoice = 3">{{ numberOfThreeStarReviews }}</span>
         3 Star Review{{ numberOfThreeStarReviews === 1 ? '' : 's' }}
       </div>
 
       <div class="well">
-        <span class="amount">{{ numberOfFourStarReviews }}</span>
+        <span class="amount" v-on:click="userFilterChoice = 4">{{ numberOfFourStarReviews }}</span>
         4 Star Review{{ numberOfFourStarReviews === 1 ? '' : 's' }}
       </div>
 
       <div class="well">
-        <span class="amount">{{ numberOfFiveStarReviews }}</span>
+        <span class="amount" v-on:click="userFilterChoice = 5">{{ numberOfFiveStarReviews }}</span>
         5 Star Review{{ numberOfFiveStarReviews === 1 ? '' : 's' }}
       </div>
     </div>
+  
+    <a href="#" @:click.prevent="showForm=true" >Add Review</a>
+    <form v-on:submit.prevent="addNewReview" v-show="showForm === true">
+    <div class="form-element">
+        <label for="reviewer">Name:</label>
+        <input id="reviewer" type="text" v-model="newReview.reviewer"  required/>
+    </div>
+    <div class="form-element">
+        <label for="title">Title:</label>
+        <input id="title" type="text" v-model="newReview.title" required/>
+    </div>
+  
+    <div class="form-element">
+        <label for="rating">Rating:</label>
+        <!-- NOTE: Use .number modifier here so newReview.rating is a number, not a string -->
+        <select id="rating" v-model.number="newReview.rating">
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+    </div>
+    <div class="form-element">
+        <label for="review">Review:</label>
+        <textarea id="review" v-model="newReview.review"></textarea>
+    </div>
+    <input type="submit" value="Save">
+    <input type="button" value="Cancel" @:click ="resetForm">
+</form>
 
     <div
       class="review"
       v-bind:class="{ favorited: review.favorited }"
-      v-for="review in reviews"
+      v-for="review in filteredReviews"
       v-bind:key="review.id"
     >
       <h4>{{ review.reviewer }}</h4>
@@ -73,6 +103,7 @@ export default {
         'A brain friendly guide to building extensible and maintainable object-oriented software.',
       nextReviewId: 1005,
       newReview: {},
+      showForm: false,
       reviews: [
         {
           id: 1000,
@@ -123,12 +154,26 @@ export default {
     };
   },
   methods: {
+
+
+  
     /*
      * Returns the next review id. Normally, a database would assign a unique id for the review.
      * This code simulates that since there's no database in this example.
      */
     getNextReviewId() {
       return this.nextReviewId++;
+    },
+    addNewReview(){
+      console.log('We are here!!!')
+      this.newReview.id = this.getNextReviewId();
+      this.reviews.unshift(this.newReview);
+      this.newReview = {};
+      this.resetForm();
+    }
+    ,resetForm(){
+      this.newReview = {};
+    this.showForm = false;
     }
   },
   computed: {
@@ -171,6 +216,16 @@ export default {
         return review.rating === 5;
       });
       return fiveStarReviews.length;
+    },
+    filteredReviews() {
+return this.reviews.filter( (review) => {
+  //if the filter is 0 return true gets added to new array, if filter =1 it adds them to the array 
+return this.userFilterChoice === 0 || this.userFilterChoice === review.rating;
+
+
+
+});
+
     }
   }
 };
