@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-on:submit.prevent="addNewReview" v-show="showForm === true">
+        <tr>
           <td>
             <input type="checkbox" id="selectAll" />
           </td>
@@ -41,7 +41,8 @@
         <tr
           v-for="user in filteredList"
           v-bind:key="user.id"
-          v-bind:class="{ deactivated: user.status === 'Inactive' }"
+          v-bind:class="{ deactivated: user.status === 'Inactive' }
+          "
         >
           <td>
             <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
@@ -52,7 +53,7 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnActivateDeactivate">Activate or Deactivate</button>
+            <button class="btnActivateDeactivate" v-on:click="activeOrInactive(user.id)">{{statusInactive ? 'Activate' : 'Deactivate'  }}</button>
           </td>
         </tr>
       </tbody>
@@ -64,24 +65,24 @@
       <button>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button v-on:click="showForm = !showForm" >Add New User</button>
+    <form id="frmAddNewUser" v-on:submit.prevent="addNewUser" v-show="showForm === true">
 
-    <form id="frmAddNewUser">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" />
+        <input type="text" id="firstName" name="firstName" v-model="newUser.firstName" />
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" />
+        <input type="text" id="lastName" name="lastName" v-model="newUser.lastName"/>
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" />
+        <input type="text" id="username" name="username" v-model="newUser.username"/>
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" id="emailAddress" name="emailAddress" />
+        <input type="text" id="emailAddress" name="emailAddress" v-model="newUser.emailAddress"/>
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -93,6 +94,7 @@ export default {
   data() {
     return {
       showForm: false,
+      changeStatus: false,
       filter: {
         firstName: "",
         lastName: "",
@@ -161,11 +163,32 @@ export default {
       ]
     };
   },
+
+
+
   methods: {
     getNextUserId() {
       return this.nextUserId++;
+    },
+
+    addNewUser(){
+      console.log("hey");
+      this.newUser.id = this.getNextUserId();
+      this.users.unshift(this.newUser);
+      this.newUser = {};
     }
   },
+    //create a method to switch status
+
+    activeOrInactive(userId){
+      if (this.users[userId-1].status === "Inactive"){
+        this.users[userId-1].status = "Active";
+      } 
+      this.users[userId-1].status = "Inactive";
+    }
+    ,
+
+
   computed: {
     filteredList() {
       let filteredUsers = this.users;

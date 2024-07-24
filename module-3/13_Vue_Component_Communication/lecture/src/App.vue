@@ -1,11 +1,11 @@
 <template>
   <div class="main">
-    <h1>Product Reviews for </h1>
-    <p class="description"></p>
+    <h1>Product Reviews for {{ $store.state.name }}</h1>
+    <p class="description">{{ $stor.state.description }}</p>
     <div class="well-display">
       <average-summary />
       <!-- This form of v-for loops through i = 1 to 5 (see https://vuejs.org/guide/essentials/list.html#v-for-with-a-range) -->
-      <star-summary v-for="i in 5" v-bind:key="i" />
+      <star-summary v-for="i in 5" v-bind:key="i" v-bind:rating="i"/>
     </div>
     <add-review />
     <review-list />
