@@ -1,13 +1,17 @@
 <template>
   <div class="card">
-
+    <h2 class="book-title">{{ book.title }}</h2>
+    <img class='book-image' v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'">
+    <h3 class="book-author">{{book.author}}</h3>
   </div>
+    <span class="amount" v-on:click="updateFilter()">{{ numberOfReviews }}</span>
+ 
+  
 </template>
 
 <script>
 export default {
-
-}
+props: [`book`]}
 </script>
 
 <style>

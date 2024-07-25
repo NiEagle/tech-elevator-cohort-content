@@ -1,7 +1,7 @@
 <template>
   <div id="book-app">
     <h1>Reading List</h1>
-    <reading-list />
+    <ReadingList />
   </div>
 </template>
 
