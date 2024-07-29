@@ -12,6 +12,7 @@
 
 <script>
 import TopicDetails from '../components/TopicDetails.vue';
+import TopicService from '../services/TopicService.js';
 
 export default {
   components: {
@@ -25,6 +26,12 @@ export default {
   },
   methods: {
     getTopic(id) {
+      TopicService
+      .get(this.$route.params.topicId).then( (response) => {
+                    this.topic = response.data;
+                });
+                this.isLoading = false;
+              
 
       // TODO - Get data from API and set `topics` property
 

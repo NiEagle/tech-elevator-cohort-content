@@ -12,10 +12,13 @@
 
 <script>
 import TopicList from '../components/TopicList.vue';
+import TopicService from '../services/TopicService.js';
 
 export default {
   components: {
-    TopicList
+    TopicList,
+
+    
   },
   data() {
     return {
@@ -25,7 +28,12 @@ export default {
   },
   methods: {
     getTopics() {
-
+      
+      TopicService
+      .list().then( (response) => {
+                    this.topics = response.data;
+                });
+                this.isLoading = false;
       // TODO - Get data from API and set `topics` property
 
     },
