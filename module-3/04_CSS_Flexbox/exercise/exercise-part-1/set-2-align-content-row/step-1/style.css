@@ -8,6 +8,7 @@ body {
   display: flex;
   background-color: #F0F0F0;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .box {
