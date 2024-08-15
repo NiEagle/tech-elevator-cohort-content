@@ -1,0 +1,199 @@
+-- 1. The city name, state abbreviation, and population of all cities in the states that border Ohio.
+-- The states are: Pennsylvania (PA), West Virginia (WV), Kentucky (KY), Indiana (IN), and Michigan (MI).
+-- The city name and state abbreviation should be returned as a single column called 'name_and_state' and should contain values such as "Detroit, MI".
+-- Order the results alphabetically by state abbreviation and then by city name.
+-- (20 rows)
+
+SELECT city_name ||', '|| state_abbreviation AS name_and_state, population
+FROM city
+WHERE state_abbreviation IN ('PA','WV','KY','IN','MI')
+ORDER BY state_abbreviation, city_name
+
+
+-- 2. The name and nickname of all states and territories that have a nickname (not NULL).
+-- The name and nickname should be returned as a single column named 'state_and_nickname' and should contain values such as "New Jersey (Garden State)".
+-- Order the results alphabetically by nickname.
+-- (51 rows)
+
+SELECT concat(state_name,' (',state_nickname,')') as state_and_nickname
+FROM state
+Where state_nickname is not null;
+
+
+-- 3. The name, population, area, and population density (name the column 'population_density') of cities with more than 5,000 people per square kilometer.
+-- Population density is expressed as people per square kilometer. In other words, population divided by area.
+-- Order the results by population density, highest number first.
+-- (9 rows)
+
+SELECT city_name, population , area , population/area as population_density
+FROM city
+WHERE (population/area) > 5000
+ORDER BY population_density DESC
+
+SELECT * FROM city
+
+
+-- 4. The average population of states in the "West" census region. Name the column 'average_population'.
+-- Expected answer is around 6,000,000
+-- (1 row)
+
+SELECT AVG(population) as average_population
+FROM state
+WHERE census_region = 'West'
+
+-- 5. The sum of the population of all cities in California. Name the column 'california_population'.
+-- Expected answer is around 20,000,000
+-- (1 row)
+
+SELECT sum(population) as california_population
+FROM city
+WHERE state_abbreviation = 'CA'
+
+-- 6. The sum of the population of all states in the "South" census region. Name the column 'south_population'.
+-- Expected answer is around 125,000,000
+-- (1 row)
+
+SELECT sum(population) as south_population
+FROM state
+WHERE census_region = 'South'
+
+-- 7. The population of the state with the highest population. Name the column 'largest_state_population'.
+-- Expected answer is around 39,500,000
+-- (1 row)
+
+SELECT max(population) as largest_state_population
+FROM state
+
+-- 8. The area of the smallest state in the "Northeast" census region. Name the column 'smallest_northeast_area'.
+-- Expected answer is around 4,000
+-- (1 row)
+
+SELECT min(area) as smallest_northeast_area
+FROM state
+WHERE census_region = 'Northeast'
+
+-- 9. The population of the city with the highest population. Name the column 'largest_city_population'.
+-- Expected answer is around 8,300,000
+-- (1 row)
+
+SELECT max(population) as largest_city_population
+FROM city
+
+-- 10. The population of the city with the smallest population in Oregon (OR). Name the column 'smallest_oregon_population'.
+-- Expected answer is around 100,000
+-- (1 row)
+
+SELECT min(population) as smallest_oregon_population
+FROM city
+WHERE state_abbreviation = 'OR'
+
+-- 11. The average sales tax of all states, territories, and districts. Name the column 'average_sales_tax'.
+-- Expected answer is around 4.9%
+-- (1 row)
+
+SELECT avg(sales_tax) as average_sales_tax
+FROM state
+
+-- 12. The average population of all cities in Washington (WA). Name the column 'average_washington_population'.
+-- Expected answer is around 202,000
+-- (1 row)
+
+SELECT avg(population) as average_washington_population
+FROM city
+WHERE state_abbreviation = 'WA'
+
+-- 13. The city name, state abbreviation, and population for all cities in the Northeast and Midwest census regions.
+-- Order the results by state abbreviation first (alphabetical), then by population (largest first).
+-- (84 rows)
+
+SELECT city_name, state_abbreviation, population
+FROM city
+WHERE state_abbreviation IN 
+(
+SELECT state_abbreviation FROM state WHERE census_region IN ('Northeast','Midwest')
+)
+ORDER BY state_abbreviation, population DESC
+SELECT * FROM city
+
+-- 14. The city name and state abbreviation for all states with a national park.
+-- Order the results by state abbreviation, then city name, both in alphabetical order.
+-- (261 rows)
+
+SELECT city_name, state_abbreviation
+FROM city
+WHERE state_abbreviation IN (SELECT state_abbreviation FROM park_state )
+ORDER BY state_abbreviation, city_name
+-- 15. The park name, date established, and area for parks in Montana and Wyoming.
+-- Order the results by park name alphabetically.
+-- (3 rows)
+
+SELECT park_name, date_established , area
+FROM park
+WHERE park_id IN (SELECT park_id FROM park_state WHERE state_abbreviation IN ('MO','WY'))
+ORDER BY park_name
+
+SELECT*FROM PARK
+SELECT*FROM PARK_STATE
+
+- 16. The average area of national parks that have camping. Name the column 'average_park_area'.
+-- Expected answer is around 3,900.
+-- (1 row)
+
+
+SELECT avg(area)
+FROM park
+WHERE has_camping IS TRUE AND park_id IN (SELECT park_id FROM park_state)
+
+-- 17. The highest population density of all records in the state table. Name the column 'population_density'.
+-- Population density is expressed as people per square kilometer. In other words, population divided by area.
+-- Exepcted answer is around 4,000
+-- (1 row)
+SELECT max(population/area) as population_density
+FROM state
+
+-- 18. The count of the number of cities (name column 'num_cities') and the state abbreviation for each state and territory (exclude state abbreviation DC).
+-- Order the results by state abbreviation.
+-- (55 rows)
+
+SELECT count(city_name) as num_cities, state_abbreviation
+FROM city
+WHERE state_abbreviation != 'DC'
+GROUP BY state_abbreviation 
+ORDER BY state_abbreviation
+
+-- 19. The census region and the number of records in the state table (name column 'num_states') for each census region. Exclude ones that don't have a census region.
+-- Order the results from highest to lowest.
+-- (Note: DC is in a census region, but the territories aren't, so the sum of the counts will equal 51).
+-- (4 rows)
+SELECT census_region, count(state_abbreviation) AS num_states
+FROM state
+WHERE census_region IS NOT null
+group by census_region
+
+
+SELECT* FROM STATE
+-- 20. The state abbreviation, and population of the city with the largest population (name column 'city_population') for all states, territories, and districts.
+-- Order the results from highest to lowest populations.
+-- (56 rows)
+SELECT state_abbreviation, max(population) AS city_population
+FROM city
+GROUP BY state_abbreviation
+ORDER BY city_population DESC
+
+-- 21. The census region, and the average, minimum, and maximum population of states and districts in each census region. Exclude ones that don't have a census region.
+-- Name the population columns 'average_population, 'min_population', and 'max_population'.
+-- Order the results from lowest to highest average population.
+-- (4 rows)
+
+SELECT census_region, avg(population), min(population), max(population)
+FROM state
+WHERE census_region IS NOT null
+GROUP BY census_region
+ORDER BY avg(population) ASC
+
+
+
+
+
+
+

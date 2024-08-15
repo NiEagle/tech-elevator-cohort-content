@@ -1,0 +1,3 @@
+Be able to work with arrays,array list, maps, create class, write a customer constructer, put a default constructor back.
+Before class pdf. Get a project pdf, upto last friday.
+Be more write a class that does this.

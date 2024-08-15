@@ -1,0 +1,146 @@
+-- 1. The titles and release dates of movies that Tom Hanks has appeared in.
+-- Order the results by release date, newest to oldest.
+-- (47 rows)
+
+SELECT title,release_date
+FROM movie
+    JOIN movie_actor ON movie.movie_id = movie_actor.movie_id
+    JOIN person ON movie_actor.actor_id = person.person_id
+	WHERE person_name = 'Tom Hanks'
+ORDER BY release_date ASC
+
+-- 2. The names and birthdays of actors in "The Fifth Element"
+-- Order the results alphabetically (A-Z) by name.
+-- (15 rows)
+
+SELECT person_name, birthday
+FROM person
+    JOIN movie_actor ON person.person_id = movie_actor.actor_id
+    JOIN movie ON movie_actor.movie_id = movie.movie_id
+	WHERE title = 'The Fifth Element'
+	ORDER BY person_name
+	
+-- 3. For all actors with the last name of "Jones", display the actor's name and movie titles they appeared in.
+-- Order the results by the actor names (A-Z) and then by movie title (A-Z).
+-- (48 rows)
+SELECT person_name, title
+FROM person
+JOIN movie_actor ON person.person_id = movie_actor.actor_id
+JOIN movie ON movie_actor.movie_id = movie.movie_id
+WHERE person_name LIKE ('% Jones')
+ORDER by person_name, title
+
+
+-- 4. The titles and taglines of all the movies that are in the Fantasy genre.
+-- Order the results by title (A-Z).
+-- (81 rows)
+
+SELECT title, tagline
+FROM movie
+JOIN movie_genre ON movie.movie_id = movie_genre.movie_id
+JOIN genre ON movie_genre.genre_id = genre.genre_id
+WHERE genre_name = 'Fantasy'
+ORDER BY title
+
+-- 5. The titles and release dates of all the movies that are in the Comedy genre.
+-- Order the results by release date, earliest to latest.
+-- (220 rows)
+SELECT title, release_date
+FROM movie
+JOIN movie_genre ON movie.movie_id = movie_genre.movie_id
+JOIN genre ON movie_genre.genre_id = genre.genre_id
+WHERE genre_name = 'Comedy'
+ORDER BY release_date ASC
+
+-- 6. The genres of "The Wizard of Oz" sorted in alphabetical order (A-Z).
+-- (3 rows)
+
+SELECT genre_name
+FROM genre
+JOIN movie_genre ON movie_genre.genre_id =  genre.genre_id
+JOIN movie ON movie_genre.movie_id = movie.movie_id
+WHERE title = 'The Wizard of Oz'
+ORDER BY genre_name
+
+-- 7. The genres of movies that Christopher Lloyd has appeared in, sorted alphabetically.
+-- (8 rows) Hint: DISTINCT will prevent duplicate values in your query results.
+
+SELECT DISTINCT genre_name
+FROM genre
+JOIN movie_genre ON movie_genre.genre_id =  genre.genre_id
+JOIN movie ON movie_genre.movie_id = movie.movie_id
+JOIN movie_actor ON movie.movie_id = movie_actor.movie_id
+JOIN person ON movie_actor.actor_id = person.person_id
+WHERE person_name = 'Christopher Lloyd'
+ORDER BY genre_name
+
+-- 8. The genres of movies that Robert De Niro has appeared in that were released in 2010 or later, sorted alphabetically.
+-- (6 rows)
+
+SELECT DISTINCT genre_name
+FROM genre
+JOIN movie_genre ON movie_genre.genre_id =  genre.genre_id
+JOIN movie ON movie_genre.movie_id = movie.movie_id
+JOIN movie_actor ON movie.movie_id = movie_actor.movie_id
+JOIN person ON movie_actor.actor_id = person.person_id
+WHERE person_name = 'Robert De Niro' AND (release_date > '2010-01-01')
+
+
+
+-- 9. The titles of movies directed by James Cameron, sorted alphabetically.
+-- (6 rows)
+
+
+SELECT title
+FROM movie
+JOIN person ON director_id = person_id
+WHERE person_name = 'James Cameron'
+ORDER BY title
+
+--2710
+
+-- 10. The names of directors who have directed a movie over 3 hours [180 minutes], sorted alphabetically.
+-- (15 rows)
+
+SELECT DISTINCT person_name
+FROM person
+JOIN movie ON person_id = director_id
+WHERE length_minutes > 180
+ORDER BY person_name
+
+-- 11. The titles of the movies in the "Star Wars Collection" ordered by release date, most recent first.
+-- (9 rows)
+
+-- 12. The titles of the movies in the "Star Wars Collection" that weren't directed by George Lucas, sorted alphabetically.
+-- (5 rows)
+
+-- 13. The directors of the movies in the "Harry Potter Collection", sorted alphabetically.
+-- (4 rows)
+
+-- 14. The names of actors who've appeared in the movies in the "Back to the Future Collection", sorted alphabetically.
+-- (28 rows)
+
+-- 15. The title of the movie and the name of director for movies where the director was also an actor in the same movie.
+-- Order the results by movie title (A-Z)
+-- (73 rows)
+
+-- 16. The names and birthdays of actors born in the 1950s who acted in movies that were released in 1985.
+-- Order the results by actor from oldest to youngest.
+-- (20 rows)
+
+-- 17. The titles and taglines of movies that are in the "Family" genre that Samuel L. Jackson has acted in.
+-- Order the results alphabetically by movie title.
+-- (4 rows)
+
+-- 18. The average length of movies in the "Science Fiction" genre. Name the column 'average_length'.
+-- (1 row, expected result between 110-120)
+
+-- 20. The titles, lengths, and release dates of the 5 longest movies in the "Action" genre.
+-- Order the movies by length (highest first), then by release date (latest first).
+-- (5 rows, expected lengths around 180 - 200)
+
+-- 21. For every person in the person table with the first name of "George", list the number of movies they've been in. Name the count column 'num_of_movies'.
+-- Include all Georges, even those that have not appeared in any movies. Display the names in alphabetical order.
+-- (59 rows)
+-- TIP: This one can be a little tricky. If you're off by one, look closer at each clause of your statement. There's something you can change to get a different result set.
+

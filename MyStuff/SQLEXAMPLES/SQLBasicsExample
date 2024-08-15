@@ -1,0 +1,218 @@
+--select
+SELECT * FROM city;
+--same as select * from city
+--also only highlighted will run
+--* means all usually bad practice
+
+
+SELECT city_name, state_abbreviation FROM city;
+--this , that form table
+
+SELECT park_id,park_name,date_established AS open_date
+FROM park;
+--The AS keyword renames as a alias
+--ORDER BY
+SELECT * 
+FROM city
+ORDER BY population;
+
+--DISTINCT
+SELECT DISTINCT city_name 
+FROM city;
+
+--WHERE
+SELECT state_abbreviation, city_name, population
+FROM city
+WHERE city_name = 'Columbus';
+
+SELECT state_abbreviation, city_name, population
+FROM city
+WHERE state_abbreviation = 'TX'
+ORDER BY population ASC;
+
+SELECT state_abbreviation, city_name, population 
+FROM city
+WHERE state_abbreviation = 'TX' AND population < 200000
+ORDER BY population ASC;
+
+SELECT *
+FROM state;
+
+SELECT state_name,census_region
+FROM state
+WHERE census_region IS NOT null
+ORDER BY census_region ASC, state_name ASC;
+
+SELECT * 
+FROM city
+WHERE state_abbreviation NOT IN ('TX','OH','FL')
+ORDER BY state_abbreviation DESC
+
+-- 1. The name and population of all cities in Ohio (OH).
+-- Order the results alphabetically (A-Z) by city.
+-- (6 rows)
+SELECT city_name,population
+FROM city
+WHERE state_abbreviation = 'OH'
+ORDER BY city_name ASC;
+
+--SEPERATE FROM HW
+SELECT *
+FROM city
+ORDER BY area DESC
+LIMIT 1;
+
+-- 2. The name and area of all cities in Pennsylvania (PA).
+-- Order the results in reverse alphabetical order (Z-A) by city name.
+-- (4 rows)
+
+SELECT city_name, area
+FROM city
+WHERE state_abbreviation = 'PA'
+ORDER BY city_name DESC;
+
+-- 3. The name, population, and sales tax of the states in the "West" census region.
+-- Order the results by sales tax, lowest first.
+-- (13 rows)
+SELECT state_name, population, sales_tax
+FROM state
+WHERE census_region = 'West'
+ORDER BY sales_tax ASC;
+
+-- 4. The name, population, and nickname of the states in the "Northeast" census region.
+-- Order the results by population, highest first.
+-- (9 rows)
+
+SELECT state_name, population, state_nickname
+FROM state
+WHERE census_region = 'Northeast'
+ORDER BY population DESC;
+
+-- 5. The name, state abbreviation, and population of the 5 cities with the highest population.
+-- (5 rows)
+
+SELECT city_name,state_abbreviation, population
+FROM city
+ORDER BY population DESC
+LIMIT 5;
+
+-- 6. The name, abbreviation, population, and area of states with an area greater than 200,000 square kilometers.
+-- Order the results by area, highest first.
+-- (16 rows)
+
+SELECT state_name, state_abbreviation,population, area
+FROM state
+WHERE area > 200000
+ORDER BY area DESC;
+
+-- 7. The name, date established, and area of the 10 smallest parks.
+-- (10 rows)
+
+SELECT park_name, date_established, area
+FROM park
+ORDER BY area ASC
+LIMIT 10;
+
+-- 8. The name and population of cities in California (CA) with a population less than 150,000 people.
+-- Order the results by population, smallest first.
+-- (37 rows)
+
+SELECT city_name,population
+FROM city
+WHERE state_abbreviation = 'CA' AND population < 150000
+ORDER BY population ASC
+
+-- 9. The name, abbreviation, population, and sales tax of all states and territories with a sales tax greater than 6.6%.
+-- Order the results by sales tax (lowest first), then by state name alphabetically (A-Z).
+-- (9 rows)
+
+SELECT state_name, state_abbreviation, population, sales_tax
+FROM state
+WHERE sales_tax > 6.6
+ORDER BY sales_tax ASC, state_name ASC;
+
+-- 10. The name and area of parks that have an area less than or equal to 700 square kilometers and provides camping.
+-- Order the results by area, largest first.
+-- (21 rows)
+
+SELECT park_name, area
+FROM park
+WHERE area <= 700 AND has_camping
+ORDER BY area DESC;
+
+
+-- 11. The name, state, and population of all cities in Colorado (CO) or Arizona (AZ).
+-- Order the results by state abbreviation alphabetically (A-Z), then by populatuon (highest first).
+-- (22 rows)
+
+SELECT city_name, state_abbreviation, population
+FROM city
+WHERE state_abbreviation = 'AZ' OR state_abbreviation = 'CO'
+ORDER BY state_abbreviation ,population DESC;
+
+-- 12. The state name, nickname, and sales tax from records in the state table in the "West" and "South" census regions with a sales tax that isn't 0%.
+-- Order the results by sales tax (highest first), then state name alphabetically (A-Z).
+-- (26 rows)
+SELECT state_name, state_nickname, sales_tax
+FROM state
+WHERE  census_region IN ('West','South') AND sales_tax != 0
+ORDER BY sales_tax DESC, state_name;
+
+-- 13. The name, abbreviation, and population of all records in the state table with no official nickname (NULL).
+-- Order the results by state name alphabetically.
+-- (5 rows)
+
+SELECT state_name, state_abbreviation, population
+FROM state
+WHERE state_nickname ISNULL
+ORDER BY state_name;
+
+-- 14. The state name, nickname, and census region for states that start with the word "New".
+-- Order the results by census region alphabetically, then state nickname alphabetically.
+-- (4 rows)
+SELECT state_name,state_nickname, census_region
+FROM state
+WHERE state_name LIKE 'New%'
+ORDER BY census_region , state_nickname
+
+-- 15. The name, state abbreviation, and population for cities that end with the word "City".
+-- Order the results by population, largest first.
+-- (11 rows)
+SELECT city_name, state_abbreviation, population
+FROM city
+WHERE city_name LIKE '%City'
+ORDER BY population DESC
+
+-- 16. The name, date established, and area of parks that contain the string "Canyon" anywhere in the name.
+-- Order the results by date established, oldest first.
+-- (5 rows)
+
+-- 17. The name, population, and area of all records in the state table with no census region (NULL) and area less than 5000 square kilometers.
+-- Order the results by area, largest first.
+-- (3 rows)
+
+-- 18. The name, population, and sales tax of all records in the state table with a sales tax of at least 7% or have a population of less than 1,000,000.
+-- Order the results by name alphabetically.
+-- (17 rows)
+
+-- 19. The name, population, area, and population density (name the column 'population_density') of all states, territories, and districts.
+-- Population density is expressed as people per square kilometer. In other words, population divided by area.
+-- Order the results by population density, lowest first.
+-- (56 rows)
+
+-- 20. The name, population, area, and population density (name the column 'population_density') of states, territories, and districts with more than 100 people per square kilometer.
+-- Population density is expressed as people per square kilometer. In other words, population divided by area.
+-- Order the results by population density, highest first.
+-- (12 rows)
+
+-- 21. The name and nickname for the largest state.
+-- (1 row)
+
+-- 22. The name and sales tax for states and territories with sales tax greater than or equal to 2% and less than or equal to 5%.
+-- Order the results by sales tax, lowest first.
+-- (15 rows)
+
+-- 23. The name and date established of parks opened in the 1960s.
+-- Order the results by date established, oldest first.
+-- (6 rows)
+

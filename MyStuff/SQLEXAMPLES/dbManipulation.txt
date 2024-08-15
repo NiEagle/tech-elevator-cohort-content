@@ -1,0 +1,1 @@
+UPDATE employee SET deparment_id = 0 WHERE department_id = ?
